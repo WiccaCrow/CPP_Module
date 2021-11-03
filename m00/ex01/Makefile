@@ -1,9 +1,11 @@
 NAME		=	phonebook
 
 CPPF		=	clang++ $(FLAGS)
-FLAGS		=	-Wall -Wextra -Werror
+FLAGS		=	-Wall -Wextra -Werror -I./
 
-SRCS		=	phonebook.cpp
+HDR			=	phonebook.hpp ClassPhonebook.hpp
+
+SRCS		=	phonebook.cpp ClassPhonebook.cpp
 OBJS		=		$(SRCS:.cpp=.o)
 %.o:			%.cpp
 				# @$(CPPF) -std=c++98 -c $< -o $@
