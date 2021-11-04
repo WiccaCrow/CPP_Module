@@ -17,19 +17,15 @@ void	phonebook_hello(void)
 
 void	parser(void)
 {
-	Phonebook	ph_book[NB_CONTACTS];
 	std::string command;
+	Phonebook	ph_book;
 	while (command != EXIT_COM)
 	{
 		command = get_command();
 		if (command == ADD)
-		{
-			ph_book[0].add();
-		}
+			ph_book.add();
 		else if (command == SEARCH)
-		{
-			std::cout << "SEARCH\n";
-		}
+			ph_book.search();
 	}
 }
 
