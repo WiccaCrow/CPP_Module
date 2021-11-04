@@ -1,5 +1,7 @@
 #include "phonebook.hpp"
 
+void	start_ph_book(Phonebook &ph_book);
+
 int	main(void)
 {
 	phonebook_hello();
@@ -19,11 +21,19 @@ void	parser(void)
 {
 	std::string command;
 	Phonebook	ph_book;
+	int			index = 0;
+
 	while (command != EXIT_COM)
 	{
 		command = get_command();
 		if (command == ADD)
-			ph_book.add();
+		{
+			ph_book.add(index);
+			++index;
+			if (index > 7)
+				index = 0;
+			// std::cout << index << std::endl;
+		}
 		else if (command == SEARCH)
 			ph_book.search();
 	}

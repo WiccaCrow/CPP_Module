@@ -1,24 +1,53 @@
 #include "ClassPhonebook.hpp"
 
-void	Phonebook::add()
+void	print_table_cap(void);
+void	print_string(std::string string, char c);
+
+// Phonebook::Phonebook()
+// {
+// 	i_add = 0;
+// }
+
+// Phonebook::~Phonebook()
+// {
+// }
+
+void	Phonebook::add(int index)
 {
-	index = i_add + 1;
-	ph_book[i_add].add();
-	++i_add;
-	if (i_add > 7)
-		i_add = 0;
+// std::cout << "Phonebook::add " << index << std::endl;
+	contact[index].add();
+	// ++i_add;
+	// if (i_add > 7)
+	// 	i_add = 0;
 }
 
 void	Phonebook::search()
 {
-	std::cout << "SEARCH\n";
+	print_table_cap();
 	for (int i = 0; i < 8; ++i)
-		if (index)
-			ph_book[i].show();
+	{
+		// std::cout << std::setw(10) << i + 1;
+		// std::cout << '|';
+		contact[i].show(i + 1);
+	}
+}
 
-	// std::cout << "first_name: " << first_name << std::endl;
-	// std::cout << "last_name: " << last_name << std::endl;
-	// std::cout << "nickname: " << nickname << std::endl;
-	// std::cout << "phone_number: " << phone_number << std::endl;
-	// std::cout << "darkest_secret: "<< darkest_secret << std::endl;
+void	print_table_cap(void)
+{
+	std::string	p;
+	
+	p = "index";
+	print_string(p, '|');
+	p = "first name";
+	print_string(p, '|');
+	p = "last name";
+	print_string(p, '|');
+	p = "nickname";
+	print_string(p, '\n');
+}
+
+void	print_string(std::string string, char c)
+{
+	std::cout << std::setw(10) << string;
+	std::cout << c;
 }

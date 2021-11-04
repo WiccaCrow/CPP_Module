@@ -1,6 +1,6 @@
 #include "ClassContact.hpp"
 
-void	    add_string(const char info[], std::string get_string);
+void	    add_string(const char info[], std::string &get_string);
 std::string	get_add_number(int &correct);
 int			ft_isdigit(const char &c);
 int			is_hyphen(std::string &phone_number, int &i);
@@ -8,21 +8,25 @@ int			is_hyphen(std::string &phone_number, int &i);
 void	Contact::add()
 {
 	int	correct = 0;
-
+// std::cout << "Contact::add " << i << std::endl;
 	std::cout << ADD_START << std::endl;
 	add_string(ADD_NAME_1ST, first_name);
 	add_string(ADD_NAME_LAST, last_name);
 	add_string(ADD_NAME_NICK, nickname);
 	while (!correct || phone_number[0] == 0)
 		phone_number = get_add_number(correct);
-	std::cout << ADD_SECRET;
-	getline(std::cin, darkest_secret);
+	add_string(ADD_SECRET, darkest_secret);
 }
 
-void	add_string(const char info[], std::string get_string)
+void	add_string(const char info[], std::string &get_string)
 {
-	std::cout << info;
-	getline(std::cin, get_string);
+	if (get_string[0])
+		get_string = "";
+	while (!get_string[0])
+	{
+		std::cout << info;
+		getline(std::cin, get_string);
+	}
 }
 
 std::string	get_add_number(int &correct)
@@ -67,7 +71,13 @@ int	is_hyphen(std::string &phone_number, int &i)
 	return (0);
 }
 
-void    Contact::show()
+void    Contact::show(int index)
 {
-
+	if (!first_name[0])
+		return ;
+	print_string(index, '|');
+	print_string(first_name, '|');
+	print_string(last_name, '|');
+	print_string(nickname, '\n');
+	std::cout << std::endl;
 }

@@ -9,13 +9,16 @@
 class Phonebook
 {
 	private:
-		int			i_add;
-		int			index;
-		Contact		ph_book[NB_CONTACTS];
+		// int			i_add;
+		// int			index;
+		Contact		contact[NB_CONTACTS];
 
 	public:
-		void	add(void);
+		// Phonebook();
+		void	add(int i);
 		void	search(void);
+		// ~Phonebook();
 };
+
 
 #endif
