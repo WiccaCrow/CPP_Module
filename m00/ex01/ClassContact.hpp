@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <iomanip>
+# include <string>
 
 # define ADD_START "Input a new contact’s information."
 # define ADD_NAME_1ST "first name is:\t"
@@ -23,17 +24,9 @@ class Contact
 		std::string	darkest_secret;
 
 	public:
-        void    add();
-        void    show(int index);
-
-		template <typename AnyType>
-		void	print_string(AnyType to_print, char c) 
-		{
-			std::cout << std::setw(10) << to_print;
-			std::cout << c;
-		}
-
-		// void	print_string(std::string string, char c);
+        void	add();
+        void	show_contacts_all_name(int index);
+		int		show_contact_by_index(int index);
 };
 
 #endif

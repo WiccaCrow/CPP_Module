@@ -4,11 +4,14 @@ void	    add_string(const char info[], std::string &get_string);
 std::string	get_add_number(int &correct);
 int			ft_isdigit(const char &c);
 int			is_hyphen(std::string &phone_number, int &i);
+void	print_string_10_char(const std::string &to_print, char c = '\n');
+void	print_string(const std::string &to_print, char c);
+void	print_string(const std::string &to_print);
 
 void	Contact::add()
 {
 	int	correct = 0;
-// std::cout << "Contact::add " << i << std::endl;
+
 	std::cout << ADD_START << std::endl;
 	add_string(ADD_NAME_1ST, first_name);
 	add_string(ADD_NAME_LAST, last_name);
@@ -71,13 +74,63 @@ int	is_hyphen(std::string &phone_number, int &i)
 	return (0);
 }
 
-void    Contact::show(int index)
+void	Contact::show_contacts_all_name(int index)
 {
 	if (!first_name[0])
 		return ;
-	print_string(index, '|');
-	print_string(first_name, '|');
-	print_string(last_name, '|');
-	print_string(nickname, '\n');
-	std::cout << std::endl;
+	std::cout << std::setw(10) << index;
+	std::cout << '|';
+	print_string_10_char(first_name, '|');
+	print_string_10_char(last_name, '|');
+	print_string_10_char(nickname);
+}
+
+void	print_string_10_char(const std::string &to_print, char c) 
+{
+	int	len = 0;
+
+	while (to_print[len])
+		++len;
+	if (len > 10)
+	{
+		for (int i = 0; i < 9; ++i)
+			std::cout << to_print[i];
+		std::cout << '.';
+		std::cout << c;
+	}
+	else
+		print_string(to_print, c);
+}
+
+int	Contact::show_contact_by_index(int index)
+{
+	if (!first_name[0])
+	{
+		if (index)
+			std::cout << "The contact with index " << index << " is empty. Try SEARCH again." << std::endl;
+		return (1);
+	}
+	else
+	{
+		if (0 == index)
+			return (0);
+		std::cout << "The contact with index " << index << ":" << std::endl;
+		print_string(first_name);
+		print_string(last_name);
+		print_string(nickname);
+		print_string(phone_number);
+		print_string(darkest_secret);
+	}
+	return (0);
+}
+
+void	print_string(const std::string &to_print, char c) 
+{
+	std::cout << std::setw(10) << to_print;
+	std::cout << c;
+}
+
+void	print_string(const std::string &to_print) 
+{
+	std::cout << to_print << std::endl;
 }
