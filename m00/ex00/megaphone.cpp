@@ -1,10 +1,30 @@
-#include<iostream>
+#include <iostream>
+
+/************************************
+ *      1.1. ft_toupper             *
+ * **********************************
+*/
+/* Description:
+ *		The function changes an incoming lowercase 
+ *		character to an uppercase character.
+*/
 
 void	ft_toupper(char &c)
 {
 	if (c >= 'a' && c <= 'z')
 		c += 'A' - 'a';
 }
+
+/************************************
+ *      1. print_uppercase          *
+ * **********************************
+*/
+/* Description:
+ *		The function change text to uppercase and 
+ *		print result.
+ * Includes functions:
+ * 		1.1. ft_toupper;
+*/
 
 void    print_uppercase(int ac, char **av)
 {
@@ -16,6 +36,14 @@ void    print_uppercase(int ac, char **av)
 	}
 	std::cout << std::endl;
 }
+
+/************************************
+ *              main                *
+ * **********************************
+*/
+/* Includes functions:
+ * 		1. print_uppercase;
+*/
 
 int main(int ac, char **av)
 {
