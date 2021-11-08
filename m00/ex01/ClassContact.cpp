@@ -20,7 +20,7 @@ void	Contact::add()
 	add_string(ADD_NAME_1ST, first_name);
 	add_string(ADD_NAME_LAST, last_name);
 	add_string(ADD_NAME_NICK, nickname);
-	while (!correct || phone_number[0] == 0)
+	while (!std::cin.eof() && (!correct || phone_number[0] == 0))
 		phone_number = get_add_number(correct);
 	add_string(ADD_SECRET, darkest_secret);
 }
@@ -41,16 +41,16 @@ void	Contact::add_string(const char info[], std::string &get_string)
 
 	if (get_string[0])
 		get_string = "";
-	while (!get_string[0] || !correct)
+	while (!std::cin.eof() && (!correct || !get_string[0]))
 	{
 		std::cout << info;
 		getline(std::cin, get_string);
 		if (get_string[0])
 		{
-			if (info == ADD_SECRET)
-				correct = 1;
-			else
+			if (info != ADD_SECRET)
 				check_string_to_correct_simbols(get_string, correct);
+			else
+				break ;
 		}
 	}
 }
@@ -99,7 +99,8 @@ std::string	Contact::get_add_number(int &correct)
 	correct = 1;
 	std::cout << ADD_NUMBER_PHONE;
 	getline(std::cin, phone_number);
-	correct = check_phone_nb_to_correct(phone_number);
+	if (!std::cin.eof())
+		correct = check_phone_nb_to_correct(phone_number);
 	return (phone_number);
 }
 

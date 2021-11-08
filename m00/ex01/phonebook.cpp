@@ -13,7 +13,6 @@ int	main(void)
 {
 	phonebook_hello();
 	parser();
-	std::cout << EXIT_COM << std::endl;
 	return (0);
 }
 
@@ -53,9 +52,10 @@ void	parser(void)
 	Phonebook	ph_book;
 	int			index = 0;
 
-	while (command != EXIT_COM)
+	while (get_command(command))
 	{
-		command = get_command();
+		if (command == EXIT_COM)
+			break ;
 		if (command == ADD)
 		{
 			ph_book.add(index);
@@ -81,16 +81,14 @@ void	parser(void)
  * 		A string with a command in the format std::string.
 */
 
-std::string	get_command(void)
+bool	get_command(std::string &input)
 {
-	std::string	input;
-
-	while (1)
+	while (!std::cin.eof())
 	{
 		std::cout << INPUT_INVITATION;
 		getline(std::cin, input);
 		if (input == ADD || input == SEARCH || input == EXIT_COM)
 			break ;
 	}
-	return (input);
+	return (!std::cin.eof());
 }

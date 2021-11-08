@@ -13,6 +13,7 @@
 
 void	    phonebook_hello(void);
 void	    parser(void);
-std::string	get_command(void);
+// std::string	get_command(void);
+bool	get_command(std::string &input);
 
 #endif

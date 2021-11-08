@@ -48,7 +48,8 @@ void	Phonebook::search()
 	if (contact[0].show_contact_by_index(0))
 		return ;
 	index = take_index();
-	contact[index - 1].show_contact_by_index(index);
+	if (!std::cin.eof())
+		contact[index - 1].show_contact_by_index(index);
 }
 
 /***************************************************
@@ -98,7 +99,7 @@ int	Phonebook::take_index()
 	std::string	input;
 
 	std::cout << INDEX_INPUT_INVITATION << std::endl;
-	while (1)
+	while (!std::cin.eof())
 	{
 		getline(std::cin, input);
 		if (!input[0])
