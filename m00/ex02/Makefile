@@ -1,7 +1,8 @@
-NAME		=	phonebook
+NAME		=	account
 
 CPPF		=	clang++ $(FLAGS)
-FLAGS		=	-Wall -Wextra -Werror -I./
+FLAGS		=	 -g -I./
+# FLAGS		=	-Wall -Wextra -Werror -I./
 
 HDR			=	Account.hpp
 
