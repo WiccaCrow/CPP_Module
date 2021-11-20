@@ -14,3 +14,9 @@ https://ru.stackoverflow.com/questions/993519/%D0%92-%D1%87%D0%B5%D0%BC-%D1%80%D
 __________
 std::pair
 https://docs.microsoft.com/ru-ru/cpp/standard-library/pair-structure?view=msvc-170
+
+_________________________________
+Конструктор и деструктор С++.
+Созданные объекты уничтожаются в обратном порядке
+(Порядок вызовов конструктора-члена и деструктора)
+https://coderoad.ru/2254263/

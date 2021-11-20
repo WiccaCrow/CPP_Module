@@ -47,7 +47,7 @@ void	Contact::add_string(const char info[], std::string &get_string)
 		getline(std::cin, get_string);
 		if (get_string[0])
 		{
-			if (info != ADD_SECRET)
+			if (std::string(info) != std::string(ADD_SECRET))
 				check_string_to_correct_simbols(get_string, correct);
 			else
 				break ;

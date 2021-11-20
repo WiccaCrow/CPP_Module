@@ -15,13 +15,11 @@ void display(const char *str, int int_display, char delimeter)
 
 Account::Account( int initial_deposit )
 {
-	// 
-	_accountIndex = _nbAccounts;
+	_accountIndex = getNbAccounts();
 	// при создании нового аккаунта, номер выбранного аккаунта растет
 	_amount = initial_deposit;
 	_nbDeposits = 0;
 	_nbWithdrawals = 0;
-
 	_nbAccounts++;
 	_totalAmount += _amount;
 	_displayTimestamp();
@@ -35,10 +33,12 @@ Account::Account(void)
 
 Account::~Account(void)
 {
-	_displayTimestamp();
-	// std::cout << ";closed" << std::endl;
+	static int	i_acc_not_closed = 1;
 
-	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";closed" << std::endl;
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";closed";
+	if (getNbAccounts() - i_acc_not_closed++)
+		std::cout << std::endl;
 }
 
 void	Account::_displayTimestamp( void )
@@ -49,10 +49,10 @@ void	Account::_displayTimestamp( void )
 void	Account::displayAccountsInfos( void )
 {
 	_displayTimestamp();
-	display("accounts:", _nbAccounts, ';');
-	display("total:", _totalAmount, ';');
-	display("deposits:", _totalNbDeposits, ';');
-	display("withdrawals:", _totalNbWithdrawals, ';');
+	display("accounts:", getNbAccounts(), ';');
+	display("total:", getTotalAmount(), ';');
+	display("deposits:", getNbDeposits(), ';');
+	display("withdrawals:", getNbWithdrawals(), 0);
 	std::cout << std::endl;
 }
 
@@ -72,7 +72,7 @@ void	Account::makeDeposit( int deposit )
 	_displayTimestamp();
 	display("index:", _accountIndex, ';');
 	display("p_amount:", _amount, ';');
-	display("deposits:", deposit, ';');
+	display("deposit:", deposit, ';');
 	_totalNbDeposits++;
 	_amount += deposit;
 	_totalAmount += deposit;
@@ -101,3 +101,24 @@ bool	Account::makeWithdrawal( int withdrawal )
 	std::cout << std::endl;
 	return (true);
 }
+
+int	Account::getNbAccounts( void )
+{
+	return (_nbAccounts);
+}
+
+int	Account::getTotalAmount( void )
+{
+	return (_totalAmount);
+}
+
+int	Account::getNbDeposits( void )
+{
+	return (_totalNbDeposits);
+}
+
+int	Account::getNbWithdrawals( void )
+{
+	return (_totalNbWithdrawals);
+}
+

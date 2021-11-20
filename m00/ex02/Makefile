@@ -9,8 +9,8 @@ HDR			=	Account.hpp
 SRCS		=	Account.cpp test.cpp
 OBJS		=		$(SRCS:.cpp=.o)
 %.o:			%.cpp
-				# @$(CPPF) -std=c++98 -c $< -o $@
-				@$(CPPF) -c $< -o $@
+				@$(CPPF) -std=c++98 -c $< -o $@
+				# @$(CPPF) -c $< -o $@
 				@echo "$(GREEN)"$@ "compilled$(ENDCOLOR)"
 
 
