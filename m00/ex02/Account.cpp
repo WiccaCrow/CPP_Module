@@ -16,7 +16,6 @@ void display(const char *str, int int_display, char delimeter)
 Account::Account( int initial_deposit )
 {
 	_accountIndex = getNbAccounts();
-	// при создании нового аккаунта, номер выбранного аккаунта растет
 	_amount = initial_deposit;
 	_nbDeposits = 0;
 	_nbWithdrawals = 0;
@@ -121,4 +120,3 @@ int	Account::getNbWithdrawals( void )
 {
 	return (_totalNbWithdrawals);
 }
-
