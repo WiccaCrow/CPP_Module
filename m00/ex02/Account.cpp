@@ -42,7 +42,13 @@ Account::~Account(void)
 
 void	Account::_displayTimestamp( void )
 {
-	std::cout << "[19920104_091532] ";
+    time_t time_current = std::time(0);
+    tm *time_localtime;
+    char date[19];
+
+    std::time_localtime = std::localtime(&time_current);
+    std::strftime(date, 19, "[%Y%m%d_%H%M%S] ", time_localtime);
+    std::cout << date;
 }
 
 void	Account::displayAccountsInfos( void )
