@@ -7,7 +7,7 @@
 class   Zombie 
 {
     private:
-        const std::string name;
+        std::string name;
 
     public:
         Zombie(std::string &name_in);
@@ -16,7 +16,9 @@ class   Zombie
         void    announce(void);
 };
 
-void randomChump( std::string name );
+void    randomChump( std::string name );
 Zombie* newZombie( std::string name );
+void    input_name_for_create_on_heap(std::string &name_input);
+void    heap_zombie_use_and_delete(std::string &name, Zombie* &heap_zombie);
 
 #endif

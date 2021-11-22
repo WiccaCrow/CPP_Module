@@ -1,8 +1,5 @@
 #include "Zombie.hpp"
 
-void    input_name_for_create_on_heap(std::string &name_input);
-void    heap_zombie_use_and_delete(std::string &name, Zombie *heap_zombie);
-
 int main(void)
 {
     Zombie *heap_zombie;
@@ -12,6 +9,7 @@ int main(void)
         heap_zombie = newZombie(name_on_heap);
     }
     heap_zombie_use_and_delete(name_on_heap, heap_zombie);
+
     {
         std::cout << std::endl << "_______________" << std::endl;
         std::cout << "2.1. Zombie on stack: run function " << std::endl;
@@ -41,7 +39,7 @@ void    input_name_for_create_on_heap(std::string &name_input)
     std::cout << "heap_zombie = newZombie(" << name_input << ");" << std::endl;
 }
 
-void    heap_zombie_use_and_delete(std::string &name, Zombie *heap_zombie)
+void    heap_zombie_use_and_delete(std::string &name, Zombie* &heap_zombie)
 {
     std::cout << std::endl;
     std::cout << "1.3. Exit the block in which the zombie " << name << " was created (on the heap)." << std::endl;

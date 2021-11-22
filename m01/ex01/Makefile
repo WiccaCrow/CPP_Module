@@ -1,11 +1,11 @@
-NAME		=	0-braiiiiiiinnnzzzZ
+NAME		=	1-Moarbrainz
 
 CPPF		=	c++ $(FLAGS)
 FLAGS		=	-Wall -Wextra -Werror -I./
 
 HDR			=	Zombie.hpp
 
-SRCS		=	main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRCS		=	main.cpp Zombie.cpp ZombieHorde.cpp
 OBJS		=	$(SRCS:.cpp=.o)
 %.o:			%.cpp
 				# @$(CPPF) -std=c++98 -c $< -o $@
