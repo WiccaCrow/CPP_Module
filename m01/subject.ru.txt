@@ -316,20 +316,57 @@ _________________________________________________________________________
 |_______________________________________________________________________|
 
 Вы знаете Карен? Все мы, не так ли? Если вы этого не сделаете, вот какие комментарии делает Карен:
-• Уровень «DEBUG»: сообщения на этом уровне содержат обширную контекстную информацию. В основном они используются для диагностики проблем. Пример: «Мне нравится получать больше бекона для моего бургера 7XL-двойной-сыр-тройной-соленый-специальный-кетчуп. Мне это просто нравится!»
-• Уровень «ИНФОРМАЦИЯ»: эти сообщения содержат некоторую контекстную информацию, которая помогает отслеживать выполнение в производственной среде. Пример: «Я не могу поверить, что добавление дополнительного бекона стоит больших денег. Вы не положили достаточно! Если бы вы это сделали, мне бы не пришлось просить об этом!»
-• Уровень «ПРЕДУПРЕЖДЕНИЕ»: предупреждающее сообщение указывает на потенциальную проблему в системе. Система способна справиться с проблемой сама или в любом случае продолжить ее решение. Пример: «Я думаю, что заслуживаю получить еще немного бекона бесплатно. Я приезжаю сюда много лет, а вы только начали здесь работать в прошлом месяце».
-• Уровень «ОШИБКА»: сообщение об ошибке указывает на серьезную проблему в системе. Проблема обычно не устраняется и требует ручного вмешательства. Пример: «Это недопустимо, я хочу поговорить с менеджером сейчас».
-________________
-________________
+• Уровень «DEBUG»: 
+	сообщения на этом уровне содержат обширную контекстную информацию. 
+	В основном они используются для диагностики проблем. 
+	Пример: 
+	«Мне нравится получать больше бекона для моего бургера 7XL-двойной-сыр-тройной-соленый-специальный-кетчуп. Мне это просто нравится!»
+
+• Уровень «ИНФОРМАЦИЯ»: 
+	эти сообщения содержат некоторую контекстную информацию, которая помогает 
+	отслеживать выполнение в производственной среде. 
+	Пример: 
+	«Я не могу поверить, что добавление дополнительного бекона стоит больших денег. Вы не положили достаточно! Если бы вы это сделали, мне бы не пришлось просить об этом!»
+
+• Уровень «ПРЕДУПРЕЖДЕНИЕ»: 
+	предупреждающее сообщение указывает на потенциальную проблему в системе. 
+	Система способна справиться с проблемой сама или в любом случае продолжить 
+	ее решение. 
+	Пример: 
+	«Я думаю, что заслуживаю получить еще немного бекона бесплатно. Я приезжаю сюда много лет, а вы только начали здесь работать в прошлом месяце».
+
+• Уровень «ОШИБКА»: 
+	сообщение об ошибке указывает на серьезную проблему в системе. Проблема 
+	обычно не устраняется и требует ручного вмешательства. 
+	Пример: 
+	«Это недопустимо, я хочу поговорить с менеджером сейчас».
+|________________
+|________________
 |
-• "DEBUG" level: Messages in this level contain extensive contextual information. They are mostly used for problem diagnosis. Example: "I love to get extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I just love it!"
-• "INFO" level: These messages contain some contextual information to help trace execution in a production environment. Example: "I cannot believe adding extra bacon cost more money. You don’t put enough! If you did I would not have to ask for it!"
-• "WARNING" level: A warning message indicates a potential problem in the system. The system is able to handle the problem by itself or to proceed with this problem anyway. Example: "I think I deserve to have some extra bacon for free. I’ve been coming here for years and you just started working here last month."
-• "ERROR" level: An error message indicates a serious problem in the system. The problem is usually non-recoverable and requires manual intervention. Example: "This is unacceptable, I want to speak to the manager now."
+|• "DEBUG" level: 
+|	Messages in this level contain extensive contextual information. 
+|	They are mostly used for problem diagnosis. 
+|	Example: 
+|	"I love to get extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I just love it!"
+|• "INFO" level: 
+|	These messages contain some contextual information to help trace execution 
+|	in a production environment. 
+|	Example: 
+|	"I cannot believe adding extra bacon cost more money. You don’t put enough! If you did I would not have to ask for it!"
+|• "WARNING" level: 
+|	A warning message indicates a potential problem in the system. 
+|	The system is able to handle the problem by itself or to proceed with this 
+|	problem anyway. 
+|	Example: 
+|	"I think I deserve to have some extra bacon for free. I’ve been coming here for years and you just started working here last month."
+|• "ERROR" level: 
+|	An error message indicates a serious problem in the system. 
+|	The problem is usually non-recoverable and requires manual intervention. 
+|	Example: 
+|	"This is unacceptable, I want to speak to the manager now."
 |
-________________
-________________
+|________________
+|________________
 
 Мы собираемся автоматизировать Карен, она всегда говорит одно и то же. 
 Вам необходимо создать класс с именем Karen, который будет содержать 
