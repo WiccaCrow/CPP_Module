@@ -65,6 +65,7 @@ std::string	&replace_one_string(std::string	&str_replace, char* &s1, char* &s2)
     {
         str_replace.erase(pos, s1_len);
         str_replace.insert(pos, s2);
+        pos += std::strlen(s1);
     }
     return (str_replace);
 }
