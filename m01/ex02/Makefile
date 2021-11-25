@@ -5,9 +5,9 @@ FLAGS		=	-Wall -Wextra -Werror
 
 SRCS		=	main.cpp
 OBJS		=	$(SRCS:.cpp=.o)
-%.o:			%.cpp
-				# @$(CPPF) -std=c++98 -c $< -o $@
-				@$(CPPF) -c $< -o $@
+%.o:			%.cpp  %.hpp
+				@$(CPPF) -std=c++98 -c $< -o $@
+				# @$(CPPF) -c $< -o $@
 				@echo "$(GREEN)"$@ "compilled$(ENDCOLOR)"
 
 

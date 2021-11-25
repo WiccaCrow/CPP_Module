@@ -6,3 +6,9 @@ https://ru.cppreference.com/w/cpp/string/basic_string/insert
 
 Работа со строками на русском. Функция
 https://server.179.ru/tasks/cpp/total/161.html
+
+
+_______________________________________________________
+ex05
+Указатели на функции-члены
+https://rsdn.org/article/cpp/fastdelegate.xml

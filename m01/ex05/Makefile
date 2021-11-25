@@ -1,15 +1,15 @@
-NAME		=	replace
+NAME		=	5-Karen
 
 CPPF		=	c++ $(FLAGS)
 FLAGS		=	-Wall -Wextra -Werror -I./
 
 HDR			=	Karen.hpp
 
-SRCS		=	main.cpp Karen.hpp
+SRCS		=	main.cpp Karen.cpp
 OBJS		=	$(SRCS:.cpp=.o)
-%.o:			%.cpp
-				# @$(CPPF) -std=c++98 -c $< -o $@
-				@$(CPPF) -c $< -o $@
+
+%.o:			%.cpp %.hpp
+				@$(CPPF) -std=c++98 -c $< -o $@
 				@echo "$(GREEN)"$@ "compilled$(ENDCOLOR)"
 
 

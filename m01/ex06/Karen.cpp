@@ -49,9 +49,20 @@ void Karen::complain( std::string level )
     
     for (i = 0; i < 4 && level != complain_lvl[i]; ++i)
     { }
-    if (i == 4)
-        return ;
-    (this->*(func_ptr[i]))();
+    switch (i)
+    {
+        case 0:
+            (this->*(func_ptr[i++]))();
+        case 1:
+            (this->*(func_ptr[i++]))();
+        case 2:
+            (this->*(func_ptr[i++]))();
+        case 3:
+            (this->*(func_ptr[i++]))();
+            break;
+        default:
+        std::cout << ERROR_LEVEL_NO << std::endl;
+    }
 }
 
 void    print_complain(std::string message)

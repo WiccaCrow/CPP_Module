@@ -8,8 +8,8 @@
 # define LEVEL_WARNING "W: I think I deserve to have some extra bacon for free. I’ve been coming here for years and you just started working here last month."
 # define LEVEL_ERROR "E: This is unacceptable, I want to speak to the manager now."
 
-# define INPUT_INVITATION "Enter a number of complain level.\n"
-# define INPUT_HELP "Number must be from 1 to 4:\n1 - DEBUG\n2 - INFO\n3 - WARNING\n4 - ERROR\nq or Q, or EXIT - to exit\nNumber is:\t"
+# define ERROR_AC_NB "ERROR: wrong number of arguments"
+# define ERROR_LEVEL_NO "[ Probably complaining about insignificant problems ]"
 
 class Karen
 {

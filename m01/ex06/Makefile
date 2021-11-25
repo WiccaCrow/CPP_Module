@@ -1,15 +1,15 @@
-NAME		=	0-braiiiiiiinnnzzzZ
+NAME		=	karenFilter
 
 CPPF		=	c++ $(FLAGS)
 FLAGS		=	-Wall -Wextra -Werror -I./
 
-HDR			=	Zombie.hpp
+HDR			=	Karen.hpp
 
-SRCS		=	main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRCS		=	main.cpp Karen.cpp
 OBJS		=	$(SRCS:.cpp=.o)
-%.o:			%.cpp  %.hpp
+
+%.o:			%.cpp %.hpp
 				@$(CPPF) -std=c++98 -c $< -o $@
-				# @$(CPPF) -c $< -o $@
 				@echo "$(GREEN)"$@ "compilled$(ENDCOLOR)"
 
 
