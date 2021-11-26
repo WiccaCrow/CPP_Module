@@ -18,6 +18,7 @@ class Fixed
         Fixed(const Fixed &original_object);
 
         Fixed & operator=(const Fixed &original_object);
+        Fixed   operator*(const Fixed &object);
 
 	    int     getRawBits (void) const; 
         void    setRawBits (int const raw);

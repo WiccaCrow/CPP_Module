@@ -59,6 +59,13 @@ Fixed & Fixed::operator=(const Fixed &original_object)
         return (*this);    
 }
 
+//      *
+
+Fixed   Fixed::operator*(const Fixed &object)
+{
+    return (Fixed (toFloat() * object.toFloat()));
+}
+
 /******************************************************************************/
 /* Private functions */
 
