@@ -12,19 +12,19 @@ const int Fixed::fractional_bits = 8;
 
 Fixed::Fixed(void)
 {
-    std::cout << "Default constructor called" << std::endl;
+    // std::cout << "Default constructor called" << std::endl;
     setRawBits(0);
 }
 
 Fixed::Fixed(int init_fix_point)
 {
-    std::cout << "Int constructor called" << std::endl;
+    // std::cout << "Int constructor called" << std::endl;
     setRawBits(init_fix_point);
 }
 
 Fixed::Fixed(float init_fix_point)
 {
-    std::cout << "Float constructor called" << std::endl;
+    // std::cout << "Float constructor called" << std::endl;
     setRawBits(init_fix_point);
 }
 
@@ -32,7 +32,7 @@ Fixed::Fixed(float init_fix_point)
 
 Fixed::Fixed(const Fixed &original_object)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    // std::cout << "Copy constructor called" << std::endl;
     operator=(original_object);
 }
 
@@ -41,7 +41,7 @@ Fixed::Fixed(const Fixed &original_object)
 
 Fixed::~Fixed(void)
 {
-    std::cout << "Destructor called" << std::endl;
+    // std::cout << "Destructor called" << std::endl;
 }
 
 /******************************************************************************/
@@ -51,7 +51,7 @@ Fixed::~Fixed(void)
 
 Fixed & Fixed::operator=(const Fixed &original_object)
 {
-    std::cout << "Assignation operator called ";
+    // std::cout << "Assignation operator called ";
     std::cout << std::endl;
     if (this == &original_object)
         return (*this);
@@ -64,6 +64,103 @@ Fixed & Fixed::operator=(const Fixed &original_object)
 Fixed   Fixed::operator*(const Fixed &object)
 {
     return (Fixed (toFloat() * object.toFloat()));
+}
+
+//      +
+
+Fixed   Fixed::operator+(const Fixed &object)
+{
+    return (Fixed (toFloat() + object.toFloat()));
+}
+
+//      -
+
+Fixed   Fixed::operator-(const Fixed &object)
+{
+    return (Fixed (toFloat() - object.toFloat()));
+}
+
+//      /
+
+Fixed   Fixed::operator/(const Fixed &object)
+{
+    return (Fixed (toFloat() / object.toFloat()));
+}
+
+//      >
+
+int   Fixed::operator>(const Fixed &object)
+{
+    return (toFloat() > object.toFloat());
+}
+
+//      <
+
+int   Fixed::operator<(const Fixed &object)
+{
+    return (toFloat() < object.toFloat());
+}
+
+//      >=
+
+int   Fixed::operator>=(const Fixed &object)
+{
+    return (toFloat() >= object.toFloat());
+}
+
+//      <=
+
+int   Fixed::operator<=(const Fixed &object)
+{
+    return (toFloat() <= object.toFloat());
+}
+
+//      ==
+
+int   Fixed::operator==(const Fixed &object)
+{
+    return (toFloat() == object.toFloat());
+}
+
+//      !=
+
+int   Fixed::operator!=(const Fixed &object)
+{
+    return (toFloat() != object.toFloat());
+}
+
+//      ++a=
+
+Fixed &     Fixed::operator++( void )
+{
+    ++fix_point;
+    return (*this);
+}
+
+//      a++=
+
+Fixed     Fixed::operator++( int )
+{
+    Fixed temp(this->toFloat());
+    ++(*this);
+    return (temp);
+}
+
+//      --a=
+
+Fixed &     Fixed::operator--( void )
+{
+    --fix_point;
+    return (*this);
+}
+
+//      a--=
+
+Fixed     Fixed::operator--( int )
+{
+    Fixed temp(this->toFloat());
+    --(*this);
+    return (temp);
 }
 
 /******************************************************************************/
@@ -120,6 +217,40 @@ float   Fixed::toFloat(void) const
 int   Fixed::toInt(void) const
 {
     return (toFloat());
+}
+
+/* Static public functions */
+
+//      max
+
+Fixed &     Fixed::max( Fixed &a, Fixed &b )
+{
+    if (a.toFloat() >= b.toFloat())
+        return (a);
+    return (b);
+}
+
+const Fixed &     Fixed::max( const Fixed &a, const Fixed &b )
+{
+    if (a.toFloat() >= b.toFloat())
+        return (a);
+    return (b);
+}
+
+//      min 
+
+Fixed &     Fixed::min( Fixed &a, Fixed &b )
+{
+    if (a.toFloat() <= b.toFloat())
+        return (a);
+    return (b);
+}
+
+const Fixed &     Fixed::min( const Fixed &a, const Fixed &b )
+{
+    if (a.toFloat() <= b.toFloat())
+        return (a);
+    return (b);
 }
 
 /******************************************************************************/

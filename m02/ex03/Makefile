@@ -1,11 +1,11 @@
-NAME		=	00-My_First_Orthodox_Class
+NAME		=	02-Now_we_re_talking
 
 CPPF		=	c++ $(FLAGS)
 FLAGS		=	-Wall -Wextra -Werror -I./
 
-HDR			=	Fixed.hpp
+HDR			=	Fixed.hpp Point.hpp
 
-SRCS		=	main.cpp Fixed.cpp
+SRCS		=	main.cpp Fixed.cpp Point.cpp bsp.cpp
 OBJS		=	$(SRCS:.cpp=.o)
 
 %.o:			%.cpp %.hpp

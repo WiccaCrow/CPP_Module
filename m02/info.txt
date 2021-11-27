@@ -34,5 +34,6 @@ _______________________________________________________
 roundf
 https://en.cppreference.com/w/cpp/numeric/math/round
 _______________________________________________________
-
+Перегрузка операторов инкремента и декремента
+https://ravesli.com/urok-137-peregruzka-operatorov-inkrementa-i-dekrementa/
 _______________________________________________________
