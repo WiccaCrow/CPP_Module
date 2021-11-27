@@ -1,78 +1,51 @@
 #include <iostream>
 #include "Fixed.hpp"
+#include "Point.hpp"
 
-void     my_tests(void);
-void     my_tests_min(Fixed &a, const Fixed &b);
+void test_class_point(void);
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 
-int  main( void ) { 
+int  main( void )
+{ 
+     Point a = Point(2, 3);
+     Point b = Point(6, 7);
+     Point c = Point(9, 2);
+     Point point = Point(5, 4);
 
-     Fixed   a;
-     Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+     bsp( a, b, c, point);
 
-     std::cout << a << std::endl;
-     std::cout << ++a << std::endl;
-     std::cout << a << std::endl;
-     std::cout << a++ << std::endl;
-     std::cout << a << std::endl;
-
-     std::cout << b << std::endl;
-
-     std::cout << Fixed::max( a, b ) << std::endl;
-
-     my_tests_min(a, b);
-     my_tests();
+// test_class_point();
 
      return 0; 
 }
 
-void     my_tests_min(Fixed &a, const Fixed &b)
+void test_class_point(void)
 {
-     std::cout << "a is " << a << ", b is " << b << ", min is " << Fixed::min( a, b ) << std::endl;
+std::cout << "Point xy_default; \n\t\t\t\t\t";
+     Point xy_default;
+     xy_default.PrintPrivate();
+
+std::cout << "Point xy_init_int = Point(2, 1, 100); \n\t\t\t\t\t";
+     Point xy_init_int = Point(2, 1, 100);
+     xy_init_int.PrintPrivate();
+
+std::cout << "Point xy_init_float = Point(2.2f, 1.1f); \n\t\t\t\t\t";
+
+     Point xy_init_float = Point(2.2f, 1.1f);
+     xy_init_float.PrintPrivate();
+
+std::cout << "Point xy_init_Fixed = \nPoint(Fixed(2.2f) * 2, Fixed(1.1f)); \n\t\t\t\t\t";
+
+     Point xy_init_Fixed = Point(Fixed(2.2f) * 2, Fixed(1.1f));
+     xy_init_Fixed.PrintPrivate();
+
+std::cout << "xy_default = xy_init_int; \n\t\t\t\t\t";
+     xy_default = xy_init_int;
+     xy_default.PrintPrivate();
+
+std::cout << "Point xy_copy = xy_init_int; \n\t\t\t\t\t";
+     Point xy_copy = xy_init_int;
+     xy_copy.PrintPrivate();
+
 }
 
-void     my_tests(void)
-{
-     // operators + - /
-
-     std::cout << std::endl << "+ - /" << std::endl;
-
-     std::cout << "Fixed( 5.0f ) + Fixed( 2 ) result " << ( Fixed( 5.0f ) + Fixed( 2 ) ) << std::endl;
-     std::cout << "Fixed( 5.0f ) - Fixed( 2 ) result " << ( Fixed( 5.0f ) - Fixed( 2 ) ) << std::endl;
-     std::cout << "Fixed( 5.0f ) / Fixed( 2 ) result " << ( Fixed( 5.0f ) / Fixed( 2 ) ) << std::endl;
-
-     // operators < > <= >= == !=
-
-     std::cout << std::endl << "TRUE" << std::endl;
-
-     std::cout << "Fixed( 5.0f ) > Fixed( 2 ) result " << ( Fixed( 5.0f ) > Fixed( 2 ) ) << std::endl;
-     std::cout << "Fixed( 5.0f ) < Fixed( 20 ) result " << ( Fixed( 5.0f ) < Fixed( 20 ) ) << std::endl;
-     std::cout << "Fixed( 5.0f ) >= Fixed( 2 ) result " << ( Fixed( 5.0f ) >= Fixed( 2 ) ) << std::endl;
-     std::cout << "Fixed( 5.0f ) <= Fixed( 20 ) result " << ( Fixed( 5.0f ) <= Fixed( 20 ) ) << std::endl;
-     std::cout << "Fixed( 5.0f ) == Fixed( 5 ) result " << ( Fixed( 5.0f ) == Fixed( 5 ) ) << std::endl;
-     std::cout << "Fixed( 5.0f ) != Fixed( 20 ) result " << ( Fixed( 5.0f ) != Fixed( 20 ) ) << std::endl;
-
-     std::cout << std::endl;
-
-     std::cout << "Fixed( 5.0f ) >= Fixed( 5.0f ) result " << ( Fixed( 5.0f ) >= Fixed( 5.0f ) ) << std::endl;
-     std::cout << "Fixed( 20.0f ) <= Fixed( 20 ) result " << ( Fixed( 20.0f ) <= Fixed( 20 ) ) << std::endl;
-
-     std::cout << std::endl << "FALSE" << std::endl;
-
-     std::cout << "Fixed( 5.0f ) > Fixed( 20 ) result " << ( Fixed( 5.0f ) > Fixed( 20 ) ) << std::endl;
-     std::cout << "Fixed( 5.0f ) < Fixed( 2 ) result " << ( Fixed( 5.0f ) < Fixed( 2 ) ) << std::endl;
-     std::cout << "Fixed( 5.0f ) >= Fixed( 20 ) result " << ( Fixed( 5.0f ) >= Fixed( 20 ) ) << std::endl;
-     std::cout << "Fixed( 5.0f ) <= Fixed( 2 ) result " << ( Fixed( 5.0f ) <= Fixed( 2 ) ) << std::endl;
-     std::cout << "Fixed( 5.0f ) == Fixed( 20 ) result " << ( Fixed( 5.0f ) == Fixed( 20 ) ) << std::endl;
-     std::cout << "Fixed( 5.0f ) != Fixed( 5 ) result " << ( Fixed( 5.0f ) != Fixed( 5 ) ) << std::endl;
-
-     // operators -- ++ 
-
-     std::cout << std::endl << "--" << std::endl;
-     Fixed my_test(5.0f);
-     std::cout << "my_test = " << my_test << std::endl;
-     std::cout << "--my_test result " << --my_test << std::endl << std::endl;
-
-     std::cout << "++my_test result " << ++my_test << std::endl;
-     std::cout << "my_test result-- result " << my_test-- << std::endl;
-     std::cout << "now my_test is " << my_test << std::endl;
-}

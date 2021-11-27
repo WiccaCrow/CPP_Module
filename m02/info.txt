@@ -37,3 +37,5 @@ _______________________________________________________
 Перегрузка операторов инкремента и декремента
 https://ravesli.com/urok-137-peregruzka-operatorov-inkrementa-i-dekrementa/
 _______________________________________________________
+Статические члены класса
+http://www.c-cpp.ru/books/staticheskie-chleny-klassa

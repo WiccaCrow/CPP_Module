@@ -52,7 +52,7 @@ Fixed::~Fixed(void)
 Fixed & Fixed::operator=(const Fixed &original_object)
 {
     // std::cout << "Assignation operator called ";
-    std::cout << std::endl;
+    // std::cout << std::endl;
     if (this == &original_object)
         return (*this);
     fix_point = original_object.getRawBits();

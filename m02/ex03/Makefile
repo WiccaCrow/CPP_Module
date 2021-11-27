@@ -1,4 +1,4 @@
-NAME		=	02-Now_we_re_talking
+NAME		=	BSP
 
 CPPF		=	c++ $(FLAGS)
 FLAGS		=	-Wall -Wextra -Werror -I./
