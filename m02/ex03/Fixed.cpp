@@ -75,7 +75,7 @@ Fixed   Fixed::operator+(const Fixed &object)
 
 //      -
 
-Fixed   Fixed::operator-(const Fixed &object)
+Fixed   Fixed::operator-(const Fixed &object) const
 {
     return (Fixed (toFloat() - object.toFloat()));
 }

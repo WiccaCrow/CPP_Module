@@ -20,7 +20,7 @@ class Fixed
         Fixed &     operator=(const Fixed &original_object);
         Fixed       operator*(const Fixed &object);
         Fixed       operator/(const Fixed &object);
-        Fixed       operator-(const Fixed &object);
+        Fixed       operator-(const Fixed &object) const;
         Fixed       operator+(const Fixed &object);
         int         operator>(const Fixed &object);
         int         operator<(const Fixed &object);
