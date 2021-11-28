@@ -1,6 +1,6 @@
 NAME		=	2-HI_THIS_IS_BRAIN
 
-CPPF		=	c++ $(FLAGS)
+CPPF		=	clang++ $(FLAGS)
 FLAGS		=	-Wall -Wextra -Werror
 
 SRCS		=	main.cpp

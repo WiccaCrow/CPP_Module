@@ -1,6 +1,6 @@
 NAME		=	1-Moarbrainz
 
-CPPF		=	c++ $(FLAGS)
+CPPF		=	clang++ $(FLAGS)
 FLAGS		=	-Wall -Wextra -Werror -I./
 
 HDR			=	Zombie.hpp

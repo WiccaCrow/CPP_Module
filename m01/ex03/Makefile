@@ -1,6 +1,6 @@
 NAME		=	3-Unnecessary_violence
 
-CPPF		=	c++ $(FLAGS)
+CPPF		=	clang++ $(FLAGS)
 FLAGS		=	-Wall -Wextra -Werror -I./
 
 HDR			=	Weapon.hpp HumanA.hpp HumanB.hpp
@@ -11,7 +11,6 @@ OBJS		=	$(SRCS:.cpp=.o)
 				@$(CPPF) -std=c++98 -c $< -o $@
 				# @$(CPPF) -c $< -o $@
 				@echo "$(GREEN)"$@ "compilled$(ENDCOLOR)"
-
 
 GREEN		=	\033[92m
 ENDCOLOR	=	\033[0m
