@@ -10,7 +10,7 @@ class HumanB
         std::string name;
         Weapon *    weapon;
     public:
-        HumanB(std::string name_in = "none");
+        HumanB(std::string name_in = NULL);
         ~HumanB(void);
 
         void    attack(void);

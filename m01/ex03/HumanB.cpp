@@ -15,7 +15,10 @@ HumanB::~HumanB(void)
 /* Public functions */
 void    HumanB::attack(void)
 {
-    std::cout << name << " attacks with his " << weapon->getType() << std::endl;
+    if (weapon)
+        std::cout << name << " attacks with his " << weapon->getType() << std::endl;
+    else
+        std::cout << name << " no attacks " << std::endl;
 }
 
 void   HumanB::setWeapon(Weapon &weapon_in)

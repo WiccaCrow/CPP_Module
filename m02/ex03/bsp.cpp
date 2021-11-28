@@ -1,35 +1,36 @@
 #include "Point.hpp"
 
-void    bsp_print_points(std::string text_head, std::string some_text, const Point &a, const Point &b, const Point &c, const Point &point);
+float   point_pos_relative_line_one(const Point &a, const Point &b, const Point &p);
+int     point_pos_relative_line_both(const Point &a, const Point &b, const Point &c, const Point &point);
 
 bool    bsp( Point const a, Point const b, Point const c, Point const point)
 {
-    bsp_print_points("Start points: \n", ":     ", a, b, c, point);
 
-    Point a_new = Point (a.GetX(), a.GetY());
-    Point b_new = Point (b.GetX(), b.GetY());
-    Point c_new = Point (c.GetX(), c.GetY());
-    Point p_new = Point (point.GetX(), point.GetY());
-    bsp_print_points("Start points: \n", "_new: ", a_new, b_new, c_new, p_new);
+    int ab = point_pos_relative_line_both(a, b, c, point);
+    int bc = point_pos_relative_line_both(b, c, a, point);
+    int cd = point_pos_relative_line_both(c, a, b, point);
 
-    a_new -= a;
-    b_new -= a;
-    c_new -= a;
-    p_new -= a;
-    bsp_print_points("\nNew points: \n", "_new: ", a_new, b_new, c_new, p_new);
-
-    return (true);
-
-
-    // return (false); 
-
+// std::cout << (ab + bc + cd) << std::endl;
+    if (3 == (ab + bc + cd))
+        return (true);
+    return (false); 
 }
 
-void    bsp_print_points(std::string text_head, std::string some_text,const Point &a, const Point &b, const Point &c, const Point &point)
+// Calculates the position of both points relative to line.
+int point_pos_relative_line_both(const Point &a, const Point &b, const Point &c, const Point &point)
 {
-    std::cout << text_head;
-    std::cout << "a" << some_text; a.PrintPrivate();
-    std::cout << "b" << some_text; b.PrintPrivate();
-    std::cout << "c" << some_text; c.PrintPrivate();
-    std::cout << "p" << some_text; point.PrintPrivate();    
+    float abc = point_pos_relative_line_one(a, b, c);
+    float abp = point_pos_relative_line_one(a, b, point);
+    // return (abc * abp >= 0);
+    return (abc * abp > 0);
+
 }
+
+// Calculates the position of point relative to line ab.
+// Any one point relative to any one straight line
+float point_pos_relative_line_one(const Point &a, const Point &b, const Point &p)
+{
+    return (p.GetX() - a.GetX()) * (b.GetY() - a.GetY()) -
+           (p.GetY() - a.GetY()) * (b.GetX() - a.GetX());
+}
+

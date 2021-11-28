@@ -12,3 +12,7 @@ _______________________________________________________
 ex05
 Указатели на функции-члены
 https://rsdn.org/article/cpp/fastdelegate.xml
+
+________
+C++: чем отличается указатель от ссылки?
+http://microsin.net/programming/arm/differences-between-pointer-variable-and-reference-variable.html
