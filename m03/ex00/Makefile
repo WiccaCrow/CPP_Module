@@ -5,7 +5,8 @@ FLAGS		=	-Wall -Wextra -Werror -I./
 
 HDR			=	ClapTrap.hpp ClassString_my.hpp
 
-SRCS		=	main.cpp ClapTrap.cpp 
+SRCS		=	main.cpp ClapTrap.cpp ClassString_my.cpp
+
 OBJS		=	$(SRCS:.cpp=.o)
 
 %.o:			%.cpp %.hpp
