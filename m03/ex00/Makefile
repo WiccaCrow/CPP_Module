@@ -1,11 +1,11 @@
-NAME		=	01-Serena_my_love
+NAME		=	00-Aaaaand_OPEN
 
 CPPF		=	c++ $(FLAGS)
 FLAGS		=	-Wall -Wextra -Werror -I./
 
-HDR			=	ClapTrap.hpp ScavTrap.hpp
+HDR			=	ClapTrap.hpp ClassString_my.hpp
 
-SRCS		=	main.cpp ClapTrap.cpp ScavTrap.cpp
+SRCS		=	main.cpp ClapTrap.cpp 
 OBJS		=	$(SRCS:.cpp=.o)
 
 %.o:			%.cpp %.hpp

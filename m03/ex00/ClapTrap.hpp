@@ -12,7 +12,7 @@ class ClapTrap
         int         Attack_damage;
 
     public:
-        ClapTrap(std::string name_in = "None", int hp = 10, int en_p = 10, int att_dam = 0);
+        ClapTrap(std::string name_in = "no name", int hp = 10, int en_p = 10, int att_dam = 0);
         ClapTrap(const ClapTrap &obj);
         ~ClapTrap();
 

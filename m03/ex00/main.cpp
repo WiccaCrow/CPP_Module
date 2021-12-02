@@ -1,4 +1,5 @@
 #include "ClapTrap.hpp"
+#include "ClassString_my.hpp"
 
 int main( void )
 {
@@ -19,6 +20,16 @@ int main( void )
 
     std::cout << "The " << ostrich.GetName() << " flees. He ran to the oasis and found a stream among the tall cacti. The ostrich drank water from the stream. The water had a healing effect." << std::endl;
     ostrich.beRepaired(1);
+
+std::string AAAA;
+AAAA = "Hello";
+AAAA = "dfghdfghjkjk";
+
+// ClapTrap    qq;
+// ClapTrap    qqNULL(NULL);
+std::cout << "test1\n";
+    String_my AA = String_my(NULL); 
+std::cout << "test2\n";
 
 
     return (0);

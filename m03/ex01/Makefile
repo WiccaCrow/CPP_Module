@@ -3,9 +3,9 @@ NAME		=	00-Aaaaand_OPEN
 CPPF		=	c++ $(FLAGS)
 FLAGS		=	-Wall -Wextra -Werror -I./
 
-HDR			=	ClapTrap.hpp
+HDR			=	ClapTrap.hpp ScavTrap.hpp
 
-SRCS		=	main.cpp ClapTrap.cpp
+SRCS		=	main.cpp ClapTrap.cpp ScavTrap.cpp
 OBJS		=	$(SRCS:.cpp=.o)
 
 %.o:			%.cpp %.hpp
