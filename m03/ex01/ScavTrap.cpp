@@ -10,7 +10,7 @@ ScavTrap::ScavTrap(std::string name_in, int hp, int en_p, int att_dam, bool gGMo
 {
     std::cout << "________________________________" << std::endl;
     std::cout << "|ScavTrap:    constructor called" << std::endl;
-    ShowAllScavTrap();
+    ScavTrap::ShowAll();
     std::cout << "|_______________________________" << std::endl;
 }
 
@@ -19,7 +19,7 @@ ScavTrap::ScavTrap(const char * name_in, int hp, int en_p, int att_dam, bool gGM
 {
     std::cout << "________________________________" << std::endl;
     std::cout << "|ScavTrap:    constructor called" << std::endl;
-    ShowAllScavTrap();
+    ScavTrap::ShowAll();
     std::cout << "|_______________________________" << std::endl;
 }
 
@@ -31,7 +31,7 @@ ScavTrap::ScavTrap(const ScavTrap &obj) :
 {
     std::cout << "________________________________" << std::endl;
     std::cout << "|ScavTrap:    Copy constructor called" << std::endl;
-    ShowAllScavTrap();
+    ScavTrap::ShowAll();
     std::cout << "|_______________________________" << std::endl;
     /* Sets new members of ScavTrap class: */
 }
@@ -54,8 +54,8 @@ ScavTrap &  ScavTrap::operator=(const ScavTrap &obj)
     std::cout << "ScavTrap:    Assignation operator called " << std::endl;
     if (this == &obj)
         return (*this);
-    SetAll(obj.GetName(), obj.GetHitpoints(), obj.GetEnergy_points(), obj.GetAttack());
-    SetGuardGateMode (obj.GetGuardGateMode());
+    SetAll(obj.GetName(), obj.GetHitpoints(), obj.GetEnergy_points(), 
+           obj.GetAttack(), obj.GetGuardGateMode());
     return (*this);
 }
 
@@ -72,20 +72,32 @@ void    ScavTrap::SetGuardGateMode(bool mode)
     guardGateMode = mode;
 }
 
+void   ScavTrap::SetAll(std::string name_in, int hp, int en_p, int att_dam, bool gGMode)
+{
+    ClapTrap::SetAll(name_in, hp, en_p, att_dam);
+    SetGuardGateMode(gGMode);
+}
+
+void   ScavTrap::SetAll(char * name_in, int hp, int en_p, int att_dam, bool gGMode)
+{
+    ClapTrap::SetAll(name_in, hp, en_p, att_dam);
+    SetGuardGateMode(gGMode);
+}
+
         /* Get and show private members*/
 bool    ScavTrap::GetGuardGateMode(void) const 
 {
     return (guardGateMode);
 }
 
-void    ScavTrap::ShowAllScavTrap(void)
+void    ScavTrap::ShowAll(void) const
 {
-    ShowAllClapTrap();
+    ClapTrap::ShowAll();
     ShowGuardGateMode();
     std::cout << "|_______________________________" << std::endl;
 }
 
-void    ScavTrap::ShowGuardGateMode(void)
+void    ScavTrap::ShowGuardGateMode(void) const
 {
     std::cout << "|         GuardGateMode is " << GetGuardGateMode() << std::endl;
 }

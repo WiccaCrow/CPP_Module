@@ -10,7 +10,7 @@ ClapTrap::ClapTrap(std::string name_in, int hp, int en_p, int att_dam) :
 {
     std::cout << "________________________________" << std::endl;
     std::cout << "|ClapTrap:    constructor called" << std::endl;
-    ShowAllClapTrap();
+    ShowAll();
     std::cout << "|_______________________________" << std::endl;
 }
 
@@ -19,7 +19,7 @@ ClapTrap::ClapTrap(const char * name_in, int hp, int en_p, int att_dam) :
 {
     std::cout << "________________________________" << std::endl;
     std::cout << "|ClapTrap:    constructor called" << std::endl;
-    ShowAllClapTrap();
+    ShowAll();
     std::cout << "|_______________________________" << std::endl;
 }
 
@@ -104,7 +104,7 @@ void    ClapTrap::SetAttack(int att_dam)
 
         /* Get and show private members */
 
-void    ClapTrap::ShowAllClapTrap(void) const
+void    ClapTrap::ShowAll(void) const
 {
     std::cout << "|_______________________________" << std::endl;
     std::cout << "|         Name is          " << GetName() << std::endl;

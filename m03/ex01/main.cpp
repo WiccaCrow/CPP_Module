@@ -71,14 +71,14 @@ void    test_ScavTrap(void)
         test_name_cout_color("\033[92m", "test ScavTrap: \033[35m operator=\033[92m");
         std::cout << "\033[33m    ClapTrap Lion2 = Lion;    \033[0m\n";
         ClapTrap Lion2 = Lion;
-        Lion2.ShowAllClapTrap();
+        Lion2.ShowAll();
         
         std::cout << "\033[33m    Lion = ScavTrap(\"Lion\");    \033[0m\n";
         Lion = ScavTrap("LionKing");
 
         std::cout << "\033[33m    ostrich = Lion;    \033[0m\n";
         ostrich = Lion;
-        ostrich.ShowAllScavTrap();
+        ostrich.ShowAll();
     
         test_name_cout_color("\033[92m", "test ScavTrap: \033[35m guardGate\033[92m");
         std::cout << "\033[33m    Lion.guardGate();    \033[0m\n";

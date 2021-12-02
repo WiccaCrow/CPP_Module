@@ -7,7 +7,7 @@
 
 class ClapTrap
 {
-    private:
+    protected:
         String_my   Name;
         int         Hitpoints;
         int         Energy_points;
@@ -18,7 +18,7 @@ class ClapTrap
         ClapTrap(std::string name_in = "none", int hp = 10, int en_p = 10, int att_dam = 0);
         ClapTrap(const char * name_in, int hp = 10, int en_p = 10, int att_dam = 0);
         ClapTrap(const ClapTrap &obj);
-        ~ClapTrap();
+        virtual ~ClapTrap();
 
         /* operators */
         ClapTrap &  operator=(const ClapTrap &obj);
@@ -33,11 +33,11 @@ class ClapTrap
         void        SetAttack(int att_dam);
 
         /* Get and show private members */
-        void        ShowAllClapTrap(void) const;
-        std::string GetName(void) const;
-        int         GetHitpoints(void) const;
-        int         GetEnergy_points(void) const;
-        int         GetAttack(void) const;
+        virtual void    ShowAll(void) const;
+        std::string     GetName(void) const;
+        int             GetHitpoints(void) const;
+        int             GetEnergy_points(void) const;
+        int             GetAttack(void) const;
 
         /* other methods */
         void    attack(String_my const & target);
