@@ -1,4 +1,5 @@
 #include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 
 void    test_name_cout_color(const char * color, const String_my text = "test")
 {
