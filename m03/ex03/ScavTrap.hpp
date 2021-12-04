@@ -3,16 +3,17 @@
 
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
-    protected:
+    private:
         bool guardGateMode;
     public:
         /* Constructs and destructs */
-        ScavTrap(std::string name_in = "no_name", int hp = 100, 
-                 int en_p = 50, int att_dam = 20, bool gGMode = false);
-        ScavTrap(const char * name_in, int hp = 100, 
-                 int en_p = 50, int att_dam = 20, bool gGMode = false);
+        ScavTrap(void);
+        ScavTrap(std::string name_in);
+        ScavTrap(const char * name_in);
+        // ScavTrap(std::string name_in, int hp, int en_p, int att_dam, bool gGMode);
+        // ScavTrap(const char * name_in, int hp, int en_p, int att_dam, bool gGMode);
         ScavTrap(const ClapTrap &obj);
         ScavTrap(const ScavTrap &obj);
         ~ScavTrap();

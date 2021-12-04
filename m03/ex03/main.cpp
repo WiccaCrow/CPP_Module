@@ -1,5 +1,6 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 void    test_name_cout_color(const char * color, const String_my text = "test")
 {
@@ -102,14 +103,23 @@ void    test_FragTrap(void)
         test_new_func.SetName("2_test_change_name");
         test_new_func.highFivesGuys ();
 
-        std::cout << "\n\033[36m    create object:\n    FragTrap ravno(\"ravno\", 333,222,66); \033[0m\n\n";
-        FragTrap ravno("ravno", 333,222,66);
-        std::cout << "\n\033[36m    test_new_func = ravno;   \033[0m\n\n";
-        test_new_func = ravno;
-        std::cout << "\n\033[36m    test_new_func.ShowAll();   \033[0m\n\n";
-        test_new_func.ShowAll();
         std::cout << "\n\033[36m    End of blosk.    \033[0m\n\n";
     }
+}
+
+void    test_DiamondTrap(void)
+{
+    std::cout << "\n\x1b[30;42m" << "  TEST DIAMOND_TRAP " << "\x1b[0m" << std::endl;
+
+    test_name_cout_color("\033[92m", "test DiamondTrap test1(\"Parameter of constructor\");");
+
+    DiamondTrap test1("Parameter of constructor");
+
+    test_name_cout_color("\033[92m", "test test1.attack(\"sdfghjkl\");");
+    test1.attack("sdfghjkl");
+
+    test_name_cout_color("\033[92m", "test test1.whoAmI();");
+    test1.whoAmI();
 }
 
 int main (void)
@@ -117,4 +127,5 @@ int main (void)
     test_ClapTrap();
     test_ScavTrap();
     test_FragTrap();
+    test_DiamondTrap();
 }
