@@ -64,6 +64,9 @@ void    test_ScavTrap(void)
         std::cout << "\n\033[33m    ScavTrap Lion = ostrich;    \033[0m\n";
         ScavTrap Lion = ostrich;
 
+        std::cout << "\033[33m    Lion.attack(\"ZEBRA\");    \033[0m\n";
+        Lion.attack("ZEBRA");
+
         test_name_cout_color("\033[92m", "test ScavTrap: \033[35m get/set\033[92m");
         std::cout << "\033[33m    ostrich set Guard Gate Mode false and show;    \033[0m\n";
         Lion.SetGuardGateMode(false);
@@ -97,6 +100,9 @@ void    test_FragTrap(void)
         FragTrap test_new_func("1_test");
         std::cout << "\n\033[36m    test_new_func.highFivesGuys ();    \033[0m\n\n";
         test_new_func.highFivesGuys ();
+
+        std::cout << "\n\033[36m    test_new_func.attack(\"ZEBRA\");    \033[0m\n";
+        test_new_func.attack("ZEBRA");
 
         std::cout << "\n\033[36m    change name test_new_func   \033[0m\n\n";
         test_new_func.SetName("2_test_change_name");

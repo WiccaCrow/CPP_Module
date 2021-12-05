@@ -108,3 +108,9 @@ void ScavTrap::guardGate(void)
     // SetGuardGateMode(true);
     std::cout << "ScavTrap have enterred in Gate keeper mode" << std::endl;
 }
+
+void    ScavTrap::attack(String_my const & target)
+{
+    std::cout << "ScavTrap attack: ";
+    ClapTrap::attack(target);
+}

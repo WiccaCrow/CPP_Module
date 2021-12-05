@@ -32,7 +32,8 @@ class ScavTrap : virtual public ClapTrap
         void    ShowGuardGateMode(void) const;
 
         /* other methods */
-        void guardGate(void);
+        void    guardGate(void);
+        void    attack(String_my const & target);
 };
 
 #endif

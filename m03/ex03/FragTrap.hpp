@@ -15,7 +15,8 @@ class FragTrap : virtual public ClapTrap
         ~FragTrap();
 
         /* methods */
-        void highFivesGuys(void);
+        void    highFivesGuys(void);
+        void    attack(String_my const & target);
 };
 
 #endif

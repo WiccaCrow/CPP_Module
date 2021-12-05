@@ -116,8 +116,8 @@ void    test_DiamondTrap(void)
 
     DiamondTrap test1("Parameter of constructor");
 
-    test_name_cout_color("\033[92m", "test test1.attack(\"sdfghjkl\");");
-    test1.attack("sdfghjkl");
+    test_name_cout_color("\033[92m", "test test1.attack(\"some_body\");");
+    test1.attack("some_body");
 
     test_name_cout_color("\033[92m", "test test1.whoAmI();");
     test1.whoAmI();

@@ -68,3 +68,9 @@ void FragTrap::highFivesGuys(void)
 {
     std::cout << GetName() << " request: \"\033[33mHigh fives! ;-)\033[0m\"" << std::endl;
 }
+
+void    FragTrap::attack(String_my const & target)
+{
+    std::cout << "FragTrap attack: ";
+    ClapTrap::attack(target);
+}
