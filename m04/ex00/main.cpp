@@ -1,7 +1,7 @@
 #include <iostream>
-#include "ClassAnimal.hpp"
-#include "ClassDog.hpp"
-#include "ClassCat.hpp"
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
 #include "WrongCat.hpp"
 #include "WrongAnimal.hpp"
 

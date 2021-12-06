@@ -1,11 +1,14 @@
-#ifndef CLASS_DOG_HPP
-# define CLASS_DOG_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
 # include <iostream>
-# include "ClassAnimal.hpp"
+# include "Animal.hpp"
+# include "Brain.hpp"
 
 class Dog : public Animal
 {    
+    private:
+        Brain   *dog_ideas;
     public:
         /* Constructs and destructs */
         Dog(void);
@@ -13,9 +16,11 @@ class Dog : public Animal
         virtual ~Dog(void);
 
         /* operators */
-        Dog &    operator=(const Dog &obj);
+        Dog &           operator=(const Dog &obj);
         /* Set private members */
+        void        SetIdea(int i, std::string idea) const;
         /* Get and show private members */
+        std::string     GetIdea(int i) const;
         /* other methods */
         virtual void    makeSound(void) const;
 };

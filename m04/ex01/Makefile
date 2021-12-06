@@ -1,11 +1,11 @@
-NAME		=	00-Polymorphism
+NAME		=	01-Animals_brain
 
 CPPF		=	c++ $(FLAGS)
 FLAGS		=	-Wall -Wextra -Werror -I./
 
-HDR			=	Animal.hpp Cat.hpp Dog.hpp WrongCat.hpp WrongAnimal.hpp
+HDR			=	Animal.hpp Cat.hpp Dog.hpp WrongCat.hpp WrongAnimal.hpp Brain.hpp
 
-SRCS		=	main.cpp Animal.cpp Cat.cpp Dog.cpp WrongCat.cpp WrongAnimal.cpp
+SRCS		=	main.cpp Animal.cpp Cat.cpp Dog.cpp WrongCat.cpp WrongAnimal.cpp Brain.cpp
 OBJS		=	$(SRCS:.cpp=.o)
 
 %.o:			%.cpp %.hpp

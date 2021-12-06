@@ -1,29 +1,29 @@
-#include "ClassAnimal.hpp"
+#include "WrongAnimal.hpp"
 
 /******************************************************************************/
 /* Constructors */
 
 //      init
 
-Animal::Animal(std::string type_in) : type (type_in)
+WrongAnimal::WrongAnimal(std::string type_in) : type (type_in)
 {
-    std::cout << "Animal: constructor called" << std::endl;
+    std::cout << "WrongAnimal: constructor called" << std::endl;
 }
 
 //      copy
 
-Animal::Animal(const Animal &obj)
+WrongAnimal::WrongAnimal(const WrongAnimal &obj)
 {
-    std::cout << "Animal: Copy constructor called" << std::endl;
+    std::cout << "WrongAnimal: Copy constructor called" << std::endl;
     operator=(obj);
 }
 
 /******************************************************************************/
 /* Destructors */
 
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 { 
-    std::cout << "Animal: destructor called" << std::endl;
+    std::cout << "WrongAnimal: destructor called" << std::endl;
 }
 
 /******************************************************************************/
@@ -31,9 +31,9 @@ Animal::~Animal()
 
 //      =
 
-Animal &    Animal::operator=(const Animal &obj)
+WrongAnimal &    WrongAnimal::operator=(const WrongAnimal &obj)
 {
-    std::cout << "Animal:    Assignation operator called " << std::endl;
+    std::cout << "WrongAnimal:    Assignation operator called " << std::endl;
     if (this != &obj)
         type = obj.getType();
     return (*this);
@@ -48,14 +48,14 @@ Animal &    Animal::operator=(const Animal &obj)
 
         /* Set private members*/
 
-std::string Animal::getType(void) const
+std::string WrongAnimal::getType(void) const
 {
     return (type);
 }
         /* Get and show private members*/
 
         /* other methods */
-void    Animal::makeSound(void) const
+void    WrongAnimal::makeSound(void) const
 {
-    std::cout << "Animal: - " << std::endl;
+    std::cout << "WrongAnimal: - " << std::endl;
 }

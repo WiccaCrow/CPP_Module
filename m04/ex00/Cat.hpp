@@ -1,8 +1,8 @@
-#ifndef CLASS_CAT_HPP
-# define CLASS_CAT_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
 # include <iostream>
-# include "ClassAnimal.hpp"
+# include "Animal.hpp"
 
 class Cat : public Animal
 {    

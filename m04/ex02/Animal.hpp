@@ -1,5 +1,5 @@
-#ifndef CLASS_ANIMAL_HPP
-# define CLASS_ANIMAL_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
 # include <iostream>
 
@@ -20,7 +20,7 @@ class Animal
         /* Get and show private members */
         virtual std::string getType(void) const;
         /* other methods */
-        virtual void    makeSound(void) const;
+        virtual void    makeSound(void) const = 0;
 };
 
 #endif
