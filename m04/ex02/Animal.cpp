@@ -33,7 +33,7 @@ Animal::~Animal()
 
 Animal &    Animal::operator=(const Animal &obj)
 {
-    std::cout << "Animal:    Assignation operator called " << std::endl;
+    std::cout << "Animal:    Assignation operator called" << std::endl;
     if (this != &obj)
         type = obj.getType();
     return (*this);
