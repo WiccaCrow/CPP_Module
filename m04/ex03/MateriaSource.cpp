@@ -7,6 +7,8 @@
 MateriaSource::MateriaSource(void)
 {
     std::cout << "MateriaSource:      constructor called" << std::endl;
+    for (int i = 0; i < 4; ++i)
+        _Source[i] = 0;
 }
 
 //      copy
@@ -37,8 +39,26 @@ MateriaSource::~MateriaSource()
 
         /* other methods */
 
-void MateriaSource::learnMateria(AMateria*)
+void MateriaSource::learnMateria(AMateria* obj)
 {
-    
+    for (int i = 0; i < 4; ++i)
+    {
+        if ( !_Source[i])
+        {
+            _Source[i] = obj->clone();
+            break ;
+        }
+    }
 }
 
+AMateria* MateriaSource::createMateria(std::string const & type)
+{
+    for (int i = 0; i < 4; ++i)
+    {
+        if (_Source[i]->getType() == type)
+        {
+            return (_Source[i]->clone());
+        }
+    }
+    return (0);
+}

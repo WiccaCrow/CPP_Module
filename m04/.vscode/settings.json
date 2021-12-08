@@ -61,7 +61,15 @@
         "ratio": "cpp",
         "stdexcept": "cpp",
         "type_traits": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "*.tcc": "cpp",
+        "clocale": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp",
+        "deque": "cpp",
+        "numeric": "cpp",
+        "random": "cpp",
+        "ranges": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
