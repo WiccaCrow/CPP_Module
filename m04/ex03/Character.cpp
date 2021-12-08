@@ -8,6 +8,8 @@ Character::Character(std::string name) :
                     _Name (name)
 {
     std::cout << "Character:      constructor called" << std::endl;
+    for (int i = 0; i < 4; ++i)
+        _inventory[i] = 0;
 }
 
 //      copy
@@ -37,6 +39,12 @@ Character &   Character::operator=(const Character &obj)
     if (this != &obj)
     {
         _Name = obj.getName();
+        for (int i = 0; i < 4; ++i)
+        {
+            if (_inventory[i])
+                delete _inventory[i];
+            _inventory[i] = obj.get_inventory_i_clone(i);
+        }
     }
     return (*this);
 }
@@ -64,8 +72,22 @@ std::string const & Character::getName() const
 
         /* other methods */
 
+void Character::equip(AMateria* m)
+{
+    for (int i = 0; i < 4; ++i)
+    {
+        if (!_inventory[i])
+        {
+            _inventory[i] = m;
+            return ;
+        }
+    }
+}
 
-// Character* Character::clone()
-// {
-//     return (new Character(_type));
-// }
+AMateria *   Character::get_inventory_i_clone(int i) const
+{
+    if (_inventory[i])
+        return (_inventory[i]->clone());
+    return (0);
+}
+

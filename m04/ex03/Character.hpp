@@ -7,6 +7,7 @@ class Character : public ICharacter
 {
     private:
         std::string _Name;
+        AMateria    * _inventory[4];
     public:
         /* Constructs and destructs */
         Character(std::string name = "no_name");
@@ -17,11 +18,12 @@ class Character : public ICharacter
         Character &   operator=(const Character &obj);
 
         virtual std::string const & getName() const;
-        // virtual void equip(AMateria* m) = 0;
+        virtual void equip(AMateria* m);
         // virtual void unequip(int idx) = 0;
         // virtual void use(int idx, ICharacter& target) = 0;
 
         void    show_all(void);
+        AMateria    *get_inventory_i_clone(int i) const;
 };
 
 #endif

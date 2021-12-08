@@ -58,18 +58,24 @@ void    test_main(void)
     test_h2lvl_cout_green_color("    AMateria* tmp;\n          tmp = src->createMateria(\"ice\");");
     AMateria* tmp;
     tmp = src->createMateria("ice");
-    // me->equip(tmp);    
-    // tmp = src->createMateria("cure");
-    // me->equip(tmp);
+    test_h2lvl_cout_green_color("    me->equip(tmp);");
+    me->equip(tmp);
+    test_h2lvl_cout_green_color("    tmp = src->createMateria(\"cure\");");
+    tmp = src->createMateria("cure");
+    test_h2lvl_cout_green_color("    me->equip(tmp);");
+    me->equip(tmp);
 
-    // ICharacter* bob = new Character("bob");
+    test_h2lvl_cout_green_color("    ICharacter* bob = new Character(\"bob\");");
+    ICharacter* bob = new Character("bob");
 
+    test_h2lvl_cout_green_color("    me->use(0, *bob);");
     // me->use(0, *bob);
+    test_h2lvl_cout_green_color("    me->use(1, *bob);");
     // me->use(1, *bob);
 
-    // delete bob;
-    // delete me;
-    // delete src;
+    delete bob;
+    delete me;
+    delete src;
 }
 
 int main(void)

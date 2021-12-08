@@ -13,7 +13,7 @@ Cure::Cure(void) :
 //      copy
 
 Cure::Cure(const Cure &obj) :
-                    AMateria("ice")
+                    AMateria("cure")
 {
     std::cout << "Cure: copy constructor called" << std::endl;
     operator=(obj);
