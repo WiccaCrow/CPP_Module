@@ -20,7 +20,7 @@ class Character : public ICharacter
         virtual std::string const & getName() const;
         virtual void equip(AMateria* m);
         // virtual void unequip(int idx) = 0;
-        // virtual void use(int idx, ICharacter& target) = 0;
+        virtual void use(int idx, ICharacter& target);
 
         void    show_all(void);
         AMateria    *get_inventory_i_clone(int i) const;

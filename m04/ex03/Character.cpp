@@ -91,3 +91,10 @@ AMateria *   Character::get_inventory_i_clone(int i) const
     return (0);
 }
 
+void Character::use(int idx, ICharacter& target)
+{
+    if (_inventory[idx])
+    {
+        _inventory[idx]->use(target);
+    }
+}

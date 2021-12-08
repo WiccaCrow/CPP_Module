@@ -69,9 +69,9 @@ void    test_main(void)
     ICharacter* bob = new Character("bob");
 
     test_h2lvl_cout_green_color("    me->use(0, *bob);");
-    // me->use(0, *bob);
+    me->use(0, *bob);
     test_h2lvl_cout_green_color("    me->use(1, *bob);");
-    // me->use(1, *bob);
+    me->use(1, *bob);
 
     delete bob;
     delete me;

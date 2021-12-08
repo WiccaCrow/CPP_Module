@@ -36,7 +36,7 @@ Ice &   Ice::operator=(const Ice &obj)
 {
     std::cout << "Ice:    Assignation operator called " << std::endl;
     if (this != &obj)
-    {;}
+        {;}
     return (*this);
 }
 
@@ -58,7 +58,7 @@ AMateria* Ice::clone() const
     return (new Ice(*this));
 }
 
-// void Ice::use(ICharacter& target)
-// {
-//     std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
-// }
+void Ice::use(ICharacter& target)
+{
+    std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+}

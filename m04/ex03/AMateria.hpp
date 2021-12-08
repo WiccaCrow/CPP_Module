@@ -4,6 +4,7 @@
 #include <iostream>
 #include "ICharacter.hpp"
 
+class ICharacter;
 
 class AMateria
 {
@@ -25,7 +26,7 @@ class AMateria
 
         /* other methods */
         virtual AMateria* clone() const = 0;
-        // virtual void use(ICharacter& target);
+        virtual void use(ICharacter& target);
 };
 
 #endif
