@@ -13,7 +13,7 @@ Cat::Cat(void) : Animal("Cat")
 
 //      copy
 
-Cat::Cat(const Cat &obj)
+Cat::Cat(const Cat &obj) : Animal(obj.getType())
 {
     std::cout << "Cat: Copy constructor called" << std::endl;
     operator=(obj);

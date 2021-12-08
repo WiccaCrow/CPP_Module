@@ -12,7 +12,8 @@ Cure::Cure(void) :
 
 //      copy
 
-Cure::Cure(const Cure &obj);
+Cure::Cure(const Cure &obj) :
+                    AMateria("ice")
 {
     std::cout << "Cure: copy constructor called" << std::endl;
     operator=(obj);
@@ -21,7 +22,7 @@ Cure::Cure(const Cure &obj);
 /******************************************************************************/
 /* Destructors */
 
-Cure:~Cure()
+Cure::~Cure()
 {
     std::cout << "Cure:       destructor called" << std::endl;
 }
@@ -34,8 +35,8 @@ Cure:~Cure()
 Cure &   Cure::operator=(const Cure &obj)
 {
     std::cout << "Cure:    Assignation operator called " << std::endl;
-    // if (this != &obj)
-    // {;}
+    if (this != &obj)
+    {;}
     return (*this);
 }
 
@@ -50,19 +51,14 @@ Cure &   Cure::operator=(const Cure &obj)
 
         /* Get and show atributs */
 
-std::string const & Cure::getType() const
-{
-    return (_type);
-}
-
         /* other methods */
 
-Cure* Cure::clone()
+AMateria* Cure::clone() const
 {
-    return (new Cure(_type));
+    return (new Cure(*this));
 }
 
-void Cure::use(ICharacter& target)
-{
-    std::cout << "* heals " << target << "'s wounds *" << std::endl;
-}
+// void Cure::use(ICharacter& target)
+// {
+//     std::cout << "* heals " << target << "'s wounds *" << std::endl;
+// }

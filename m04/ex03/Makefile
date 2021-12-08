@@ -3,11 +3,9 @@ NAME		=	03-interface_resume
 CPPF		=	c++ $(FLAGS)
 FLAGS		=	-Wall -Wextra -Werror -I./
 
-HDR			=	Character.hpp ICharacter.hpp MateriaSource.hpp IMateriaSource.hpp Ice.hpp
-# HDR			=	Character.hpp ICharacter.hpp MateriaSource.hpp IMateriaSource.hpp Ice.hpp Cure.hpp 
+HDR			=	Character.hpp ICharacter.hpp MateriaSource.hpp IMateriaSource.hpp Ice.hpp AMateria.hpp Cure.hpp 
 
-SRCS		=	Character.cpp main.cpp MateriaSource.cpp Ice.cpp
-# SRCS		=	Character.cpp main.cpp MateriaSource.cpp Ice.cpp Cure.cpp
+SRCS		=	Character.cpp main.cpp MateriaSource.cpp Ice.cpp AMateria.cpp Cure.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 

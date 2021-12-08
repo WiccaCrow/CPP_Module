@@ -17,7 +17,7 @@ AMateria::AMateria(std::string const & type) :
 
 //      copy
 
-AMateria::AMateria(const AMateria &obj);
+AMateria::AMateria(const AMateria &obj)
 {
     std::cout << "AMateria: copy constructor called" << std::endl;
     operator=(obj);
@@ -26,7 +26,7 @@ AMateria::AMateria(const AMateria &obj);
 /******************************************************************************/
 /* Destructors */
 
-AMateria:~AMateria()
+AMateria::~AMateria()
 {
     std::cout << "AMateria:       destructor called" << std::endl;
 }
@@ -61,11 +61,6 @@ std::string const & AMateria::getType() const
 }
 
         /* other methods */
-
-AMateria* AMateria::clone()
-{
-    return (new AMateria(_type));
-}
 
 // void AMateria::use(ICharacter& target)
 // {

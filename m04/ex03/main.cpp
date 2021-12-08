@@ -9,8 +9,11 @@
 
 void    test_class_AMateria(void)
 {
-    // AMateria    Ice;
-    // AMateria    Cure;
+    AMateria *tmp_ice = new Ice();
+    Cure test_cure;
+    AMateria *tmp_cure = new Cure();
+    delete tmp_cure;
+    delete tmp_ice;
 }
 
 void    test_main(void)
@@ -34,12 +37,12 @@ void    test_main(void)
 
     // delete bob;
     // delete me;
-    delete src;
+    // delete src;
 }
 
 int main(void)
 {
-    test_class_AMateria();
+    // test_class_AMateria();
     test_main();
     return (0);
 }

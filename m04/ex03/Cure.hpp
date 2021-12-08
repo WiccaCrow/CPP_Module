@@ -18,8 +18,8 @@ class Cure : public AMateria
         /* Set atributs */
         /* Get and show atributs */
         /* other methods */
-        virtual Cure* clone();
-        virtual void use(ICharacter& target);
+        virtual AMateria* clone() const;
+        // virtual void use(ICharacter& target);
 };
 
 #endif

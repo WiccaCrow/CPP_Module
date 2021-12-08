@@ -12,7 +12,8 @@ Ice::Ice(void) :
 
 //      copy
 
-Ice::Ice(const Ice &obj)
+Ice::Ice(const Ice &obj) :
+                    AMateria("ice")
 {
     std::cout << "Ice: copy constructor called" << std::endl;
     operator=(obj);
@@ -50,19 +51,14 @@ Ice &   Ice::operator=(const Ice &obj)
 
         /* Get and show atributs */
 
-std::string const & Ice::getType() const
-{
-    return (_type);
-}
-
         /* other methods */
 
 AMateria* Ice::clone() const
 {
-    return (new Ice(_type));
+    return (new Ice(*this));
 }
 
-void Ice::use(ICharacter& target)
-{
-    std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
-}
+// void Ice::use(ICharacter& target)
+// {
+//     std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+// }

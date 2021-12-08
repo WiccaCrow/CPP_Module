@@ -9,7 +9,6 @@ class Ice : public AMateria
     public:
         /* Constructs and destructs*/
         Ice(void);
-        Ice(std::string const & type);
         Ice(const Ice &obj);
         ~Ice();
 
@@ -18,11 +17,9 @@ class Ice : public AMateria
 
         /* Set atributs */
         /* Get and show atributs */
-        std::string const & getType() const; //Returns the materia type
-
         /* other methods */
         virtual AMateria* clone() const;
-        virtual void use(ICharacter& target);
+        // virtual void use(ICharacter& target);
 };
 
 #endif

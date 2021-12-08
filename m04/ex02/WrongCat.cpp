@@ -12,7 +12,7 @@ WrongCat::WrongCat(void) : WrongAnimal("Cat")
 
 //      copy
 
-WrongCat::WrongCat(const WrongCat &obj)
+WrongCat::WrongCat(const WrongCat &obj) : WrongAnimal(obj.getType())
 {
     std::cout << "WrongCat: Copy constructor called" << std::endl;
     operator=(obj);
