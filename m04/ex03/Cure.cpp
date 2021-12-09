@@ -36,13 +36,12 @@ Cure &   Cure::operator=(const Cure &obj)
 {
     std::cout << "Cure:    Assignation operator called " << std::endl;
     if (this != &obj)
-        {;}
+    {}
     return (*this);
 }
 
 /******************************************************************************/
 /* Private functions */
-
 
 /******************************************************************************/
 /* Public functions */

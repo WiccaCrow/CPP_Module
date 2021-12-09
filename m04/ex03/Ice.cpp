@@ -36,7 +36,7 @@ Ice &   Ice::operator=(const Ice &obj)
 {
     std::cout << "Ice:    Assignation operator called " << std::endl;
     if (this != &obj)
-        {;}
+    {}
     return (*this);
 }
 
