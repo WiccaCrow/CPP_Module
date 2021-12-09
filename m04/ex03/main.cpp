@@ -119,7 +119,7 @@ void    test_main(void)
             ice_man.equip(&ice_obj);
         ice_man.show_all();
 
-        test_h3lvl_cout_blue_color("        ice_man.unequip(5); ice_man.unequip(2); ice_man.unequip(2);\n        ice_man.show_all();");
+        test_h3lvl_cout_blue_color("        ice_man.unequip(5); ice_man.unequip(2); ice_man.unequip(2); ice_man.unequip(3);\n        ice_man.show_all();");
         ice_man.unequip(5);
         ice_man.unequip(2);
         ice_man.unequip(2);
