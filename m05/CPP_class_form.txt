@@ -1,0 +1,48 @@
+#ifndef CURE_HPP
+# define CURE_HPP
+
+#include <bla bla bla>
+
+class AAAA : public AAAA
+{
+    public:
+        /* Constructs and destructs*/
+        /* operators */
+        /* Set atributs */
+        /* Get and show atributs */
+        /* other methods */
+};
+
+#endif
+
+
+
+
+#include ".hpp"
+
+/******************************************************************************/
+/* Constructors */
+
+//      init
+
+//      copy
+
+/******************************************************************************/
+/* Destructors */
+
+/******************************************************************************/
+/* Operators */
+
+//      =
+
+/******************************************************************************/
+/* Private functions */
+
+/******************************************************************************/
+/* Public functions */
+
+        /* Set atributs */
+
+        /* Get and show atributs */
+
+        /* other methods */
