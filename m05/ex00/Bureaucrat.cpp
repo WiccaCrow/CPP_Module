@@ -8,14 +8,15 @@
 Bureaucrat::Bureaucrat(const std::string name, const int &grade) : 
                                    _name (name),   _grade (grade)
 {
-        if (_grade < 1)
-                throw GradeTooHighException();
+        std::cout << "__Bureaucrat " << _name << "__:      constructor called\n";
+        check_exception();
 }
 
 //      copy
 
 Bureaucrat::Bureaucrat(const Bureaucrat &obj)
 {
+        std::cout << "__Bureaucrat " << _name << "__: copy constructor called\n";
         operator=(obj);
 }
 
@@ -23,7 +24,9 @@ Bureaucrat::Bureaucrat(const Bureaucrat &obj)
 /* Destructors */
 
 Bureaucrat::~Bureaucrat()
-{}
+{
+        std::cout << "__Bureaucrat " << _name << "__:      destructor called\n";
+}
 
 /******************************************************************************/
 /* Operators */
@@ -32,6 +35,7 @@ Bureaucrat::~Bureaucrat()
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
 {
+        std::cout << "__Bureaucrat " << _name << "__:      Assignation operator called\n";
         if (this != &obj)
         {
                 _grade = obj.getGrade();
@@ -45,13 +49,25 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
 void    Bureaucrat::changeGrade(const int &change_grade)
 {
         _grade += change_grade;
+        check_exception();
         std::cout << "The grade has been changed to "
-                << (change_grade > 0 ? change_grade : -change_grade)
-                << " and the score is now "
-                << getGrade()
-                << ". " 
-                << std::endl;
+                  << (change_grade > 0 ? change_grade : -change_grade)
+                  << " and the score is now "
+                  << getGrade()
+                  << ". " 
+                  << std::endl;
+}
 
+void    Bureaucrat::check_exception()
+{
+        if (_grade < 1)
+        {
+                throw GradeTooHighException();
+        }
+        else if (_grade > 150)
+        {
+                throw GradeTooLowException();
+        }
 }
 
 /******************************************************************************/
@@ -107,13 +123,14 @@ std::ostream &       operator<<(std::ostream &ost_obj, Bureaucrat &bur_obj)
 
 /******************************************************************************/
 /******************************************************************************/
-        /* EXCEPTION */
+        /* EXCEPTION */ /*GradeTooHighException*/
 
 
 /******************************************************************************/
 /* Constructors */
 
 //      init
+
 Bureaucrat::GradeTooHighException::
             GradeTooHighException(const std::string message) :
                                           _message (message)
@@ -128,3 +145,29 @@ const char * Bureaucrat::GradeTooHighException::
 {
         return _message.c_str();
 }
+
+/******************************************************************************/
+/******************************************************************************/
+        /* EXCEPTION */ /*GradeTooLowException*/
+
+
+/******************************************************************************/
+/* Constructors */
+
+//      init
+
+Bureaucrat::GradeTooLowException::
+            GradeTooLowException(const std::string message) :
+                                         _message (message)
+{ }
+
+Bureaucrat::GradeTooLowException::
+            ~GradeTooLowException()  throw()
+{ }
+
+const char * Bureaucrat::GradeTooLowException::
+            what() const throw()
+{
+        return _message.c_str();
+}
+

@@ -1,24 +1,28 @@
-NAME	=	00-bureaucrat
+NAME		=	00-bureaucrat
 
-CPPF	=	c++ $(FLAGS)
-FLAGS	=	-Wall -Wextra -Werror -I./
+CPPF		=	c++ $(FLAGS)
+# CPPF		=	clang++ $(FLAGS)
 
-SRCS	=	main.cpp Bureaucrat.cpp
+FLAGS		=	-Wall -Wextra -Werror -I./
 
-OBJS	=	$(SRCS:.cpp=.o)
+HDR			=   Bureaucrat.hpp
 
-%.o:		%.cpp %.hpp
-			@$(CPPF) -std=c++98 -c $< -o $@
-			@echo "$(GREEN)"$@ "compilled$(ENDCOLOR)"
+SRCS		=	main.cpp Bureaucrat.cpp
+
+OBJS		=	$(SRCS:.cpp=.o)
+
+%.o:			%.cpp %.hpp
+					@$(CPPF) -std=c++98 -c $< -o $@
+					@echo "$(GREEN)"$@ "compilled$(ENDCOLOR)"
 
 GREEN		=	\033[92m
 ENDCOLOR	=	\033[0m
 
-all:	$(NAME)
+all:			$(NAME)
 
-$(NAME):	$(OBJS)
-			@$(CPPF) $(OBJS) -o $(NAME)
-			@echo "$(GREEN)$(NAME) is compiled $(ENDCOLOR)"
+$(NAME):		$(OBJS)
+				@$(CPPF) $(OBJS) -o $(NAME)
+				@echo "$(GREEN)$(NAME) is compiled $(ENDCOLOR)"
 
 clean:		;	@rm -f $(OBJS)
 
