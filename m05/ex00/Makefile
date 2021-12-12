@@ -3,7 +3,7 @@ NAME	=	00-bureaucrat
 CPPF	=	c++ $(FLAGS)
 FLAGS	=	-Wall -Wextra -Werror -I./
 
-SRCS	=	*.cpp
+SRCS	=	main.cpp Bureaucrat.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 
