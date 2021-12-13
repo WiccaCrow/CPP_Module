@@ -102,9 +102,5 @@ int main(void)
     test_2_increase();
     test_3_decrease();
 
-
-    Bureaucrat Vova("Vova", 110);
-    std::cout << Vova << std::endl;
-
     return (0);
 }

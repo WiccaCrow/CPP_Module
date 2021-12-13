@@ -1,31 +1,38 @@
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 /******************************************************************************/
 /* Constructors */
 
 //      init
 
-Bureaucrat::Bureaucrat(const std::string name, const int grade) : 
-                                   _name (name),   _grade (grade)
+Form::Form(const std::string name, const int grade_sign, const int grade_exec) :
+
+        _name (name),   
+        _grade_sign (grade_sign),
+        _grade_execute (grade_exec),
+        _indicate_signed (false)
 {
-        std::cout << "__Bureaucrat " << _name << "__:      constructor called\n";
-        check_exception();
+        std::cout << "__Form " << _name << "__:      constructor called\n";
+        check_exception(1, 150);
 }
 
 //      copy
 
-Bureaucrat::Bureaucrat(const Bureaucrat &obj)
+Form::Form(const Form &obj) :
+        _name (get_name()),
+        _grade_sign (get_grade_sign()),
+        _grade_execute (get_grade_exec())
 {
-        std::cout << "__Bureaucrat " << _name << "__: copy constructor called\n";
+        std::cout << "__Form " << _name << "__: copy constructor called\n";
         operator=(obj);
 }
 
 /******************************************************************************/
 /* Destructors */
 
-Bureaucrat::~Bureaucrat()
+Form::~Form()
 {
-        std::cout << "__Bureaucrat " << _name << "__:      destructor called\n";
+        std::cout << "__Form " << _name << "__:      destructor called\n";
 }
 
 /******************************************************************************/
@@ -33,12 +40,12 @@ Bureaucrat::~Bureaucrat()
 
 //      =
 
-Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
+Form &Form::operator=(const Form &obj)
 {
-        std::cout << "__Bureaucrat " << _name << "__:      Assignation operator called\n";
+        std::cout << "__Form " << _name << "__:      Assignation operator called\n";
         if (this != &obj)
         {
-                _grade = obj.getGrade();
+                _indicate_signed = obj.get_indicate_signed();
         }
         return (*this);
 }
@@ -46,25 +53,13 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
 /******************************************************************************/
 /* Private functions */
 
-void    Bureaucrat::changeGrade(const int &change_grade)
+void    Form::check_exception(int hight, int low)
 {
-        _grade += change_grade;
-        check_exception();
-        std::cout << "The grade has been changed to "
-                  << (change_grade > 0 ? change_grade : -change_grade)
-                  << " and the score is now "
-                  << getGrade()
-                  << ". " 
-                  << std::endl;
-}
-
-void    Bureaucrat::check_exception()
-{
-        if (_grade < 1)
+        if (_grade_sign < hight || _grade_sign < hight)
         {
                 throw GradeTooHighException();
         }
-        else if (_grade > 150)
+        else if (_grade_sign > low || _grade_execute  > low )
         {
                 throw GradeTooLowException();
         }
@@ -77,37 +72,48 @@ void    Bureaucrat::check_exception()
 
         /* Get and show atributs */
 
-std::string Bureaucrat::getName(void) const
+std::string Form::get_name(void) const
 {
         return (_name);
 }
 
-int         Bureaucrat::getGrade(void) const
+int         Form::get_grade_sign(void) const
 {
-        return (_grade);
+        return (_grade_sign);
 }
 
-void        Bureaucrat::show_all(void) const
+int         Form::get_grade_exec(void) const
 {
-        std::cout << getName()
-                  << ", bureaucrat grade "
-                  << getGrade()
+        return (_grade_execute);
+}
+
+bool        Form::get_indicate_signed(void) const
+{
+        return (_indicate_signed);
+}
+
+void        Form::show_all(void) const
+{
+        std::cout << get_name()
+                  << ", Form grade to sign "
+                  << get_grade_sign()
+                  << ", grade to execute "
+                  << get_grade_exec()
+                  << ", is sign: "
+                  << get_indicate_signed()
                   << std::endl;
 }
 
         /* other methods */
 
-void    Bureaucrat::decreaseGrade(const int &set_up)
+void    Form::beSigned(const Bureaucrat &bur)
 {
-        std::cout << "decreaseGrade: ";
-        changeGrade(set_up);
-}
-
-void    Bureaucrat::increaseGrade(const int &set_down)
-{
-        std::cout << "increaseGrade: ";
-        int set_down_new = -set_down;
-        changeGrade(set_down_new);
+        if (!_indicate_signed && bur.getGrade() <= _grade_sign)
+        {
+                _indicate_signed = true;
+        }
+        else if (!_indicate_signed)
+                throw GradeTooLowException();
 }
 
 /******************************************************************************/
@@ -120,16 +126,16 @@ void    Bureaucrat::increaseGrade(const int &set_down)
 
 //      init
 
-Bureaucrat::GradeTooHighException::
+Form::GradeTooHighException::
             GradeTooHighException(const std::string message) :
                                           _message (message)
 { }
 
-Bureaucrat::GradeTooHighException::
+Form::GradeTooHighException::
             ~GradeTooHighException()  throw()
 { }
 
-const char * Bureaucrat::GradeTooHighException::
+const char * Form::GradeTooHighException::
             what() const throw()
 {
         return _message.c_str();
@@ -145,16 +151,16 @@ const char * Bureaucrat::GradeTooHighException::
 
 //      init
 
-Bureaucrat::GradeTooLowException::
+Form::GradeTooLowException::
             GradeTooLowException(const std::string message) :
                                          _message (message)
 { }
 
-Bureaucrat::GradeTooLowException::
+Form::GradeTooLowException::
             ~GradeTooLowException()  throw()
 { }
 
-const char * Bureaucrat::GradeTooLowException::
+const char * Form::GradeTooLowException::
             what() const throw()
 {
         return _message.c_str();
@@ -165,7 +171,7 @@ const char * Bureaucrat::GradeTooLowException::
 
 // overload of the<<operator to ostream
 
-std::ostream &       operator<<(std::ostream &ost_obj, Bureaucrat &bur_obj)
+std::ostream &       operator<<(std::ostream &ost_obj, Form &bur_obj)
 {
         bur_obj.show_all();
         return (ost_obj);

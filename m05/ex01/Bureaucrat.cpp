@@ -6,7 +6,7 @@
 //      init
 
 Bureaucrat::Bureaucrat(const std::string name, const int grade) : 
-                                   _name (name),   _grade (grade)
+                                   _name (name), _grade (grade)
 {
         std::cout << "__Bureaucrat " << _name << "__:      constructor called\n";
         check_exception();
@@ -108,6 +108,25 @@ void    Bureaucrat::increaseGrade(const int &set_down)
         std::cout << "increaseGrade: ";
         int set_down_new = -set_down;
         changeGrade(set_down_new);
+}
+
+void    Bureaucrat::signForm(Form &f_obj)
+{
+        try
+        {
+                if (!f_obj.get_indicate_signed())
+                {
+                        f_obj.beSigned(*this);
+                        std::cout << getName() << " signs " 
+                        << f_obj.get_name() << std::endl;
+                }
+        } catch (const std::exception& e)
+        {
+                std::cout << getName() << " cannot sign " 
+                        << f_obj.get_name() 
+                        << " because " << e.what()
+                        << std::endl;
+        }
 }
 
 /******************************************************************************/
