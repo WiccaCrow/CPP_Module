@@ -261,7 +261,7 @@ _________________________________________________________________
 
 • ShrubberyCreationForm 
     (обязательные оценки: sign 145, exec 137). 
-    Действие: Создайет файл с именем <target>_shrubbery 
+    Действие: Создает файл с именем <target>_shrubbery 
     и записывает в него деревья ASCII в текущем каталоге.
 
 • RobotomyRequestForm 
@@ -279,7 +279,8 @@ _________________________________________________________________
 Например, «дом», если вы хотите посадить кустарник у себя дома. 
 Помните, что атрибуты формы должны оставаться private и 
 принадлежать базовому классу.
-Remember the form’s attributes need to remain private, and in the base class
+Remember the form’s attributes need to remain private, 
+and in the base class
 
 Теперь вам нужно добавить метод 
 execute(Bureaucrat const & executor) const
