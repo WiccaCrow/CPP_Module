@@ -61,31 +61,50 @@ std::string    ShrubberyCreationForm::get_target() const
 
         /* other methods */
 
-/*
-              #
-             ***
-            *****
-           *****~~
-            **~~~
-           *~~~***
-          ~~~******
-         ~~*********
-        *************
-         ***********
-        *************
-       ***************
-      *@***************
-     ***@************@**
-    *@****************@**
-      @****************
-     *******************
-    *****@***************
-   ***********************
-  ********@****************
- *****************@*********
-*****************************
-            |||||
-            |||||   _8_8_
-            |||||  |  |  |_8_
-            |||||  |__|__|___|
-*/
+void    drow_tree(std::ofstream &fout);
+
+void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+{    
+    Form::execute(executor);
+    std::string filename = get_target() + "_shrubbery";
+    std::ofstream fout(filename.c_str(), std::ios_base::out |
+                               std::ios_base::trunc);
+    if (!fout.is_open())
+    {
+        std::cerr << ERROR_FILE_REPLACE_OPEN << std::endl;
+        return ;
+    }
+    drow_tree(fout);
+    fout.close();
+}
+
+void    drow_tree(std::ofstream &fout)
+{
+    fout 
+         << "                 #                    " << std::endl
+         << "                ***                   " << std::endl
+         << "               *****                  " << std::endl
+         << "              *****~~                 " << std::endl
+         << "               **~~~                  " << std::endl
+         << "              *~~~***                 " << std::endl
+         << "             ~~~******                " << std::endl
+         << "            ~~*********               " << std::endl
+         << "           *************              " << std::endl
+         << "            ***********               " << std::endl
+         << "           *************              " << std::endl
+         << "          ***************             " << std::endl
+         << "         *@***************            " << std::endl
+         << "        ***@************@**           " << std::endl
+         << "       *@****************@**          " << std::endl
+         << "         @****************            " << std::endl
+         << "        *******************           " << std::endl
+         << "       *****@***************          " << std::endl
+         << "      ***********************         " << std::endl
+         << "     ********@****************        " << std::endl
+         << "    *****************@*********       " << std::endl
+         << "   *****************************      " << std::endl
+         << "               |||||                  " << std::endl
+         << "               |||||   _8_8_          " << std::endl
+         << "               |||||  |  |  |_8_      " << std::endl
+         << "               |||||  |__|__|___|     " << std::endl;
+}

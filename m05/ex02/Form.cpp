@@ -116,6 +116,14 @@ void    Form::beSigned(const Bureaucrat &bur)
                 throw GradeTooLowException();
 }
 
+void    Form::execute(Bureaucrat const & executor) const
+{
+        if (false == get_indicate_signed())
+                throw GradeTooLowException("  <Exception> : form must be signed.");
+        else if (executor.getGrade() > get_grade_exec())
+                throw GradeTooLowException();
+}
+
 /******************************************************************************/
 /******************************************************************************/
         /* EXCEPTION */ /*GradeTooHighException*/

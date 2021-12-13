@@ -19,7 +19,7 @@ class Form
         /* Constructs and destructs*/
         Form(const std::string name = "no name", const int grade_sign = 150, const int grade_exec = 150);
         Form(const Form &obj);
-        ~Form();
+        virtual  ~Form();
 
         /* operators */
         Form &operator=(const Form &obj);
@@ -33,7 +33,8 @@ class Form
         void        show_all(void) const;
 
         /* other methods */
-        void    beSigned(const Bureaucrat &bur);
+        void            beSigned(const Bureaucrat &bur);
+        virtual void    execute(Bureaucrat const & executor) const = 0;
 
         /* exception */
         class GradeTooHighException : public std::exception

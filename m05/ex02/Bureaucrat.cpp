@@ -129,6 +129,19 @@ void    Bureaucrat::signForm(Form &f_obj)
         }
 }
 
+void    Bureaucrat::anexecuteForm(Form const & form)
+{
+        try
+        {
+                form.execute(*this);
+                std::cout << getName() << " executes " << form.get_name() <<std::endl;
+        }       catch(const std::exception& e)
+        {
+                std::cerr << e.what() << '\n';
+        }
+}
+
+
 /******************************************************************************/
 /******************************************************************************/
         /* EXCEPTION */ /*GradeTooHighException*/

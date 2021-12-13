@@ -1,17 +1,17 @@
-NAME		=	01-form
+NAME		=	02-tree_robot_pardon
 
 CPPF		=	c++ $(FLAGS)
 # CPPF		=	clang++ $(FLAGS)
 
 FLAGS		=	-Wall -Wextra -Werror -I./
 
-HDR			=   Bureaucrat.hpp Form.hpp
+HDR			=   Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp
 
-SRCS		=	main.cpp Bureaucrat.cpp Form.cpp
+SRCS		=	main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 
-%.o:			%.cpp $(HDR).hpp
+%.o:			%.cpp $(HDR)
 					@$(CPPF) -std=c++98 -c $< -o $@
 					@echo "$(GREEN)"$@ "compilled$(ENDCOLOR)"
 
