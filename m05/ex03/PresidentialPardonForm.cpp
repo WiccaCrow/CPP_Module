@@ -5,7 +5,7 @@
 
 //      init
 PresidentialPardonForm::PresidentialPardonForm(std::string target) : 
-        Form("PresidentialPardonForm", 25, 5),
+        Form("presidential pardon", 25, 5),
         _target (target)
 {
     std::cout << "__" << get_name() << "__:      constructor called\n";
@@ -14,7 +14,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target) :
 //      copy
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &obj) :
-        Form("PresidentialPardonForm", 25, 5)
+        Form("presidential pardon", 25, 5)
 {
     std::cout << "__" << get_name() << "__:      copy constructor called\n";
     operator=(obj);

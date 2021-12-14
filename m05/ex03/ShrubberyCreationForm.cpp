@@ -5,7 +5,7 @@
 
 //      init
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : 
-        Form("ShrubberyCreationForm", 145, 137),
+        Form("shrubbery creation", 145, 137),
         _target (target)
 {
     std::cout << "__" << get_name() << "__:      constructor called\n";
@@ -15,7 +15,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target) :
 //      copy
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &obj) :
-        Form("ShrubberyCreationForm", 145, 137)
+        Form("shrubbery creation", 145, 137)
 {
     std::cout << "__" << get_name() << "__:      copy constructor called\n";
     operator=(obj);

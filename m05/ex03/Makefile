@@ -8,14 +8,16 @@ FLAGS		=	-Wall -Wextra -Werror -I./
 HDR			=   Bureaucrat.hpp Form.hpp \
 				ShrubberyCreationForm.hpp \
 				RobotomyRequestForm.hpp \
-				PresidentialPardonForm.hpp
+				PresidentialPardonForm.hpp \
+				Intern.hpp
 
 SRCS		=	main.cpp \
 				Bureaucrat.cpp \
 				Form.cpp \
 				ShrubberyCreationForm.cpp \
 				RobotomyRequestForm.cpp \
-				PresidentialPardonForm.cpp
+				PresidentialPardonForm.cpp \
+				Intern.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 

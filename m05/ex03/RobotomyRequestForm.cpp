@@ -6,7 +6,7 @@
 //      init
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : 
-        Form("RobotomyRequestForm", 72, 45),
+        Form("robotomy request", 72, 45),
         _target (target),
         _i_robotomize (0)
 {
@@ -16,7 +16,7 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target) :
 //      copy
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &obj) :
-        Form("RobotomyRequestForm", 72, 45)
+        Form("robotomy request", 72, 45)
 {
     std::cout << "__" << get_name() << "__:      copy constructor called\n";
     operator=(obj);
