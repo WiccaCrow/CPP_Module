@@ -1,9 +1,5 @@
 #include "ScalarConversion.hpp"
 
-#include <sstream>
-#include <iostream>
-#include <string>
-
 /******************************************************************************/
 /* Constructors */
 
@@ -13,6 +9,7 @@ ScalarConversion::ScalarConversion(std::string av) :
 {
     for (int i = 0; i < 4; ++i)
         _possible[i] = 1;
+
     func_ptr[0] = &ScalarConversion::cast_char;
     func_ptr[1] = &ScalarConversion::cast_float;
     func_ptr[2] = &ScalarConversion::cast_double;
@@ -22,20 +19,10 @@ ScalarConversion::ScalarConversion(std::string av) :
     parse_av();
 
     // calls casts and fills other variables
-    // *func_ptr[_av_type];
-    (this->*(func_ptr[_av_type]))();
-    std::cout << "test 3\n";
+    if (_av_type < 4 )
+        (this->*(func_ptr[_av_type]))();
 
-    // for (int i = _av_type + 1; i != _av_type; ++i)
-    // {
-    //     if (i == 4)
-    //         i = 0;
-    //     // func_ptr[i];
-    //     (this->*(func_ptr[_av_type]))();
-    //     if (i == 3)
-    //         i = -1;
-    // }
-    std::cout << "test 4\n";
+    show_all();
 }
 
 //      copy
@@ -56,8 +43,19 @@ ScalarConversion::~ScalarConversion()
 
 //      =
 
-ScalarConversion &  ScalarConversion::operator=(const ScalarConversion &)
+ScalarConversion &  ScalarConversion::operator=(const ScalarConversion &obj)
 {
+    if (this != &obj)
+    {
+        _av = obj._av;
+        _av_type = obj._av_type;
+        for (int i = 0; i < 4; ++i)
+            _possible[i] = obj._possible[i];
+        _c = obj._c;
+        _i = obj._i;
+        _f = obj._f;
+        _d = obj._d;
+    }
     return (*this);
 }
 
@@ -68,11 +66,12 @@ void    ScalarConversion::parse_av()
 {
     if (1 == _av.length() && !std::isdigit(_av[0]))
         _av_type = 0; // char
-    else if ((!_av.compare("-inff") || !_av.compare("+inff") || !_av.compare("nanf")) ||
-                _av[_av.length() - 1] == 'f')
-        _av_type = 1; // float
+    else if (!_av.compare("-inff") || !_av.compare("+inff") || !_av.compare("nanf"))
+        _av_type = 4; // float spec
     else if (!_av.compare("-inf") || !_av.compare("+inf") || !_av.compare("nan"))
-        _av_type = 2; // double
+        _av_type = 5; // double spec
+    else if (_av[_av.length() - 1] == 'f')
+        _av_type = 1; // float
     else
     {
         int point, i = 0;  
@@ -86,6 +85,33 @@ void    ScalarConversion::parse_av()
     }
 }
 
+int    ScalarConversion::check_limits_int()
+{
+    if ((_av[0] != '-' && _av.length() > 10) || (_av[0] == '-' && _av.length() > 11))
+        _possible[3] = 0;
+    if ((_av[0] != '-' && _av.length() == 10) || (_av[0] == '-' && _av.length() == 11))
+    {
+
+        unsigned int int_to_cmp;
+        if (_av[0] == '-')
+        {
+            std::istringstream streamm(&_av[1]);
+            streamm >> int_to_cmp;
+        }
+        else
+        {
+            std::istringstream streamm(_av);
+            streamm >> int_to_cmp;
+        }
+        if ((_av[0] == '-' && int_to_cmp > 2147483648u) ||
+            (_av[0] != '-' && int_to_cmp > 2147483647u))
+            {
+                for (int i = 0; i < 4; ++i)
+                    _possible[i] = 0;
+            }
+    }
+    return (_possible[3]);
+}
 
 /******************************************************************************/
 /* Public functions */
@@ -94,63 +120,93 @@ void    ScalarConversion::parse_av()
 
         /* Get and show atributs */
 
+int    ScalarConversion::show_spec_float()
+{
+    if (_av_type == 4)
+    {
+        std::cout << "char: " << "impossible" << std::endl;
+        std::cout << "int: " << "impossible" << std::endl;
+        std::cout << "float: " << _av << std::endl;
+        std::string av_copy = _av;
+        av_copy[_av.length() - 1] = '\0';
+        std::cout << "double: " << av_copy << std::endl;
+        return (1); 
+    }
+    return (0);
+}
+
+int    ScalarConversion::show_spec_double()
+{
+    if (_av_type == 5)
+    {
+        std::cout << "char: " << "impossible" << std::endl;
+        std::cout << "int: " << "impossible" << std::endl;
+        std::cout << "float: " << std::fixed << std::setprecision(1) << _av << "f" << std::endl;
+        std::cout << "double: " << std::fixed << std::setprecision(1) << _av << std::endl;   
+        return (1); 
+    }
+    return (0);
+}
+
+
 void    ScalarConversion::show_all()
 {
-    if (_possible[0])
+    // std::cout << _av_type << std ::endl;
+    if (show_spec_float() || show_spec_double())
+        return ;
+    if (_possible[0] && _c > 32)
         std::cout << "char: " << _c << std::endl;
+    else if (_possible[0] && _c <= 32)
+        std::cout << "char: " << "Non displayable" << std::endl;
+    else
+        std::cout << "char: " << "impossible" << std::endl;
     if (_possible[3])
         std::cout << "int: " << _i << std::endl;
+    else
+        std::cout << "int: " << "impossible" << std::endl;
     if (_possible[1])
-        std::cout << "float: " << _f << std::endl;
+        std::cout << "float: " << std::fixed << std::setprecision(1) << _f << "f" << std::endl;
+    else
+        std::cout << "float: " << "impossible" << std::endl;
     if (_possible[2])
-        std::cout << "double: " << _d << std::endl;
+        std::cout << "double: " << std::fixed << std::setprecision(1) << _d << std::endl;
+    else
+        std::cout << "double: " << "impossible" << std::endl;
 }
 
         /* other methods */
 
 void    ScalarConversion::cast_int()
 {
+    if (!check_limits_int())
+        return ;
     std::istringstream stream(_av);
     stream >> _i;
-    _c = static_cast<float>(_i);
+    conv_to_char(_i);
     _f = static_cast<float>(_i);
     _d = static_cast<double>(_i);
-
-    show_all();
-
 }
 
 void    ScalarConversion::cast_char()
 {
-    std::cout << "test 1\n";
     _c = _av[0];
     _f = static_cast<float>(_c);
     _d = static_cast<double>(_c);
     _i = static_cast<int>(_c);
-    std::cout << "test 2\n";
-
-    show_all();
-
 }
 
 void    ScalarConversion::cast_float()
 {
     _f = stof(_av);
-    _c = static_cast<float>(_f);
+    conv_to_char(_f);
     _d = static_cast<double>(_f);
-    _i = static_cast<int>(_f);
-
-    show_all();
-
+    conv_to_int(_f);
 }
 
 void    ScalarConversion::cast_double()
 {
     _d = stod(_av);
-    _c = static_cast<float>(_d);
+    conv_to_char(_d);
     _f = static_cast<float>(_d);
-    _i = static_cast<int>(_d);
-
-    show_all();
-
+    conv_to_int(_d);
 }

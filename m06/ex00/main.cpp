@@ -7,13 +7,9 @@ int main(int ac, char **av)
     if (ac == 2 && !check_valid_av1(av[1]))
     {
         ScalarConversion    tets(av[1]);
-    std::cout << "test 5\n";
-
     }
     else
         std::cerr << "Error: wrong number of arguments or not valid entry (string to conversion)." << std::endl;
-    std::cout << "test 6\n";
-
     return (0);
 }
 
@@ -29,6 +25,8 @@ int    check_valid_av1(std::string av)
     int point, i = 0;
     if (av[0] == '-')
         ++i;
+    if (!std::isdigit(av[i]))
+        return (1);
     for (point = 0; av[i] && point < 2; ++i)
     {
         if (!std::isdigit(av[i]))
