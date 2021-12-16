@@ -1,13 +1,13 @@
-NAME		=	01-reinterpret_cast
+NAME		=	02-dynamic_cast
 
 CPPF		=	c++ $(FLAGS)
 # CPPF		=	clang++ $(FLAGS)
 
 FLAGS		=	-Wall -Wextra -Werror -I./
 
-# HDR			=   
+HDR			=   Base.hpp A.hpp B.hpp C.hpp
 
-SRCS		=	main.cpp
+SRCS		=	main.cpp Base.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 

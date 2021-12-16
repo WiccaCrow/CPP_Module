@@ -197,7 +197,8 @@ void    ScalarConversion::cast_char()
 
 void    ScalarConversion::cast_float()
 {
-    _f = stof(_av);
+    // _f = stof(_av);
+    _f = std::strtof(_av.c_str(), NULL);
     conv_to_char(_f);
     _d = static_cast<double>(_f);
     conv_to_int(_f);
@@ -205,7 +206,8 @@ void    ScalarConversion::cast_float()
 
 void    ScalarConversion::cast_double()
 {
-    _d = stod(_av);
+    // _d = stod(_av);
+    _d = std::strtod(_av.c_str(), NULL);
     conv_to_char(_d);
     _f = static_cast<float>(_d);
     conv_to_int(_d);

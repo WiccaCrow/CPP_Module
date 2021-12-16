@@ -7,6 +7,7 @@
 #include <sstream>
 #include <string>
 #include <iomanip>
+#include <cstdlib>
 
 class ScalarConversion
 {
