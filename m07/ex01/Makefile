@@ -1,13 +1,13 @@
-NAME		=	00-template
+NAME		=	01-template
 
 CPPF		=	c++ $(FLAGS)
 # CPPF		=	clang++ $(FLAGS)
 
 FLAGS		=	-Wall -Wextra -Werror -I./
 
-HDR			=   whatever.hpp Fixed.hpp
+HDR			=   iter.hpp
 
-SRCS		=	main.cpp Fixed.cpp
+SRCS		=	main.cpp 
 
 OBJS		=	$(SRCS:.cpp=.o)
 
