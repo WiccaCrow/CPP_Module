@@ -18,4 +18,5 @@ https://russianblogs.com/article/3214697881/
 
 ex03
 шаблоны классов
+https://cpp.com.ru/lippman/c16.html
 http://cppstudio.com/post/5188/
