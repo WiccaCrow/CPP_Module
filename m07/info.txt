@@ -15,3 +15,7 @@ https://ravesli.com/urok-171-dinamicheskoe-privedenie-tipov-operator-dynamic_cas
 
 dynamic_cast &
 https://russianblogs.com/article/3214697881/
+
+ex03
+шаблоны классов
+http://cppstudio.com/post/5188/
