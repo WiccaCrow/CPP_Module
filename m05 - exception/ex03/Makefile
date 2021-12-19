@@ -1,4 +1,4 @@
-NAME		=	02-tree_robot_pardon
+NAME		=	03-intern
 
 CPPF		=	c++ $(FLAGS)
 # CPPF		=	clang++ $(FLAGS)

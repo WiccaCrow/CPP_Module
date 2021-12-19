@@ -129,7 +129,7 @@ void    Bureaucrat::signForm(Form &f_obj)
         }
 }
 
-void    Bureaucrat::anexecuteForm(Form const & form)
+void    Bureaucrat::executeForm(Form const & form)
 {
         try
         {

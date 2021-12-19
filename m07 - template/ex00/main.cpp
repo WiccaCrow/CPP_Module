@@ -60,7 +60,10 @@ void    test ()
  *       2. min;
  *       3. max;
  *       4. test;
+ *       5. test_check_list;
 */
+
+void    test_check_list(void);
 
 int main( void ) 
 {
@@ -83,6 +86,46 @@ int main( void )
     std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
 
     test();
+
+    test_check_list();
     
     return 0;
+}
+
+
+/******************************************************************************/
+/*                             test_check_list                                */
+/******************************************************************************/
+
+class Awesome 
+{ 
+    public: 
+        Awesome(void) : _n(0) {} 
+        Awesome(int n):_n(n){} 
+        Awesome& operator=(Awesome & a) { _n=a._n; return*this; } 
+
+        bool operator==(Awesome const & rhs) const { return(this->_n==rhs._n); } 
+        bool operator!=(Awesome const & rhs) const { return(this->_n!=rhs._n); } 
+        bool operator>(Awesome const & rhs) const { return(this->_n>rhs._n); } 
+        bool operator<(Awesome const & rhs) const { return(this->_n<rhs._n); } 
+        bool operator>=(Awesome const & rhs) const { return(this->_n>=rhs._n); } 
+        bool operator<=(Awesome const & rhs) const { return(this->_n<=rhs._n); } 
+        
+        int get_n() const { return _n; } 
+        
+    private: 
+        int _n; 
+}; 
+
+std::ostream & operator<<(std::ostream & o,const Awesome & a) { o << a.get_n() ; return o ; }
+
+void    test_check_list(void)
+{
+    std::cout << "\n\x1b[30;42m" << "TEST CHECK LIST" << "\x1b[0m" << std::endl;
+
+    Awesome a(2), b(4);
+    swap(a, b);
+    std::cout << a << " " << b << std::endl; 
+    std::cout << max(a,b) << std::endl; 
+    std::cout << min(a,b) << std::endl; 
 }

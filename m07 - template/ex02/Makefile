@@ -1,4 +1,4 @@
-NAME		=	01-template
+NAME		=	02-template
 
 CPPF		=	c++ $(FLAGS)
 # CPPF		=	clang++ $(FLAGS)

@@ -11,7 +11,7 @@ SRCS		=	main.cpp Bureaucrat.cpp Form.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 
-%.o:			%.cpp $(HDR).hpp
+%.o:			%.cpp $(HDR)
 					@$(CPPF) -std=c++98 -c $< -o $@
 					@echo "$(GREEN)"$@ "compilled$(ENDCOLOR)"
 

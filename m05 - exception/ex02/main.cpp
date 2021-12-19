@@ -44,13 +44,13 @@ void    test_Form_all_good(Bureaucrat &Vova, Form &shr_1, Form &shr_2)
         test_h3lvl_cout_blue_color("Vova.signForm(shr_1);");
         Vova.signForm(shr_1);
 
-        test_h3lvl_cout_blue_color("Vova.anexecuteForm(shr_1);");
-        Vova.anexecuteForm(shr_1);
+        test_h3lvl_cout_blue_color("Vova.executeForm(shr_1);");
+        Vova.executeForm(shr_1);
 
         test_h2lvl_cout_green_color("test_2 without exception");
 
-        test_h3lvl_cout_blue_color("Vova.anexecuteForm(shr_2);");
-        Vova.anexecuteForm(shr_2);  
+        test_h3lvl_cout_blue_color("Vova.executeForm(shr_2);");
+        Vova.executeForm(shr_2);  
     }    catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
@@ -60,8 +60,8 @@ void    test_Form_all_good(Bureaucrat &Vova, Form &shr_1, Form &shr_2)
 void    test_Form_not_signed(Bureaucrat &Vova, Form &shr_2)
 {
     test_h2lvl_cout_green_color("test with exception - execute not signed form");
-    test_h3lvl_cout_blue_color("Vova.anexecuteForm(shr_2);");
-    Vova.anexecuteForm(shr_2);    
+    test_h3lvl_cout_blue_color("Vova.executeForm(shr_2);");
+    Vova.executeForm(shr_2);    
 }
 
 void    test_Form_low_signed(Bureaucrat &Vova, Form &shr_2)
@@ -80,8 +80,8 @@ void    test_low_execute(Bureaucrat &Vova, Form &shr_2)
     Vova.increaseGrade(10);
     test_h3lvl_cout_blue_color("Vova.signForm(shr_2);");
     Vova.signForm(shr_2);
-    test_h3lvl_cout_blue_color("Vova.anexecuteForm(shr_2);");
-    Vova.anexecuteForm(shr_2);
+    test_h3lvl_cout_blue_color("Vova.executeForm(shr_2);");
+    Vova.executeForm(shr_2);
 }
 
 //______________________________________________________________________//
