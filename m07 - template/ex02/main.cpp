@@ -16,11 +16,12 @@ int main(int, char**)
         numbers[i] = value;
         mirror[i] = value;
     }
-// numbers.show_all();
-    // SCOPE
+    numbers.show_all();
+     // SCOPE
     {
         Array<int> tmp = numbers;
         Array<int> test(tmp);
+        test.show_all();
     }
 
     for (int i = 0; i < MAX_VAL; i++)
@@ -31,6 +32,11 @@ int main(int, char**)
             return 1;
         }
     }
+    std::cout << std::endl << "\033[36m" << "numbers[2] +=2;\n" << "\033[0m";
+    numbers[2] +=2;
+    numbers.show_all();
+    
+    std::cout << std::endl << "\033[36m" << "numbers[-2] = 0;\n" << "\033[0m";
     try
     {
         numbers[-2] = 0;
@@ -39,6 +45,8 @@ int main(int, char**)
     {
         std::cerr << e.what() << '\n';
     }
+    
+    std::cout << std::endl << "\033[36m" << "numbers[MAX_VAL] = 0;\n" << "\033[0m";
     try
     {
         numbers[MAX_VAL] = 0;
@@ -48,10 +56,13 @@ int main(int, char**)
         std::cerr << e.what() << '\n';
     }
 
+    std::cout << std::endl << "\033[36m" << "numbers[i] = rand(); if for\n" << "\033[0m";
     for (int i = 0; i < MAX_VAL; i++)
     {
         numbers[i] = rand();
     }
+    numbers.show_all();
+    
     delete [] mirror;//
 
     test_check_list();
@@ -59,7 +70,7 @@ int main(int, char**)
 }
 
 /******************************************************************************/
-/*                             test_check_list                                */
+/*             test_check_list               */
 /******************************************************************************/
 
 class Awesome 

@@ -1,37 +1,35 @@
-#ifndef CURE_HPP
-# define CURE_HPP
-
-#include <bla bla bla>
-
-class AAAA : public AAAA
-{
-    public:
-        /* Constructs and destructs*/
-        /* operators */
-        /* Set atributs */
-        /* Get and show atributs */
-        /* other methods */
-};
-
-#endif
-
-
-#include ".hpp"
+#include "Span.hpp"
 
 /******************************************************************************/
 /* Constructors */
 
 //      init
 
+Span::Span(const unsigned int N)
+{
+
+}
+
 //      copy
+
+Span::Span(const Span & obj)
+{}
 
 /******************************************************************************/
 /* Destructors */
+
+Span::~Span()
+{}
 
 /******************************************************************************/
 /* Operators */
 
 //      =
+
+Span &  Span::operator=(const Span &obj)
+{
+    return (*this);
+}
 
 /******************************************************************************/
 /* Private functions */
@@ -41,7 +39,11 @@ class AAAA : public AAAA
 
         /* Set atributs */
 
+void    Span::addNumber(int nb) const
+{
+    
+}
+
         /* Get and show atributs */
 
         /* other methods */
-
