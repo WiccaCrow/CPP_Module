@@ -1,12 +1,14 @@
 #ifndef SPAN_HPP
 # define SPAN_HPP
 
-#include <array>
+#include <vector>
 #include <iostream>
 
 class Span
 {
     private:
+        std::vector<int>    _arr;
+        int                 _N_max;
 
     public:
         /* Constructs and destructs*/
