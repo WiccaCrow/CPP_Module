@@ -3,6 +3,8 @@
 
 #include <vector>
 #include <iostream>
+#include <algorithm>
+
 
 class Span
 {
@@ -11,8 +13,6 @@ class Span
         std::vector<int>    _arr;
         vect_iter           _iter;
         int                 _N_max;
-        
-        // void check_exception(int nb) const;
 
     public:
         /* Constructs and destructs*/
@@ -22,10 +22,11 @@ class Span
 
         /* operators */
         Span &  operator=(const Span &obj);
-        int  operator[](int i) const;
+        int  &  operator[](int i);
 
         /* Set atributs */
-        void    addNumber(int nb);
+        void    addNumber(const int &nb);
+        void    addNumber(const vect_iter & first, vect_iter last);
 
         /* Get and show atributs */
         

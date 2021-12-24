@@ -6,9 +6,7 @@
 //      init
 
 Span::Span(const unsigned int N) : _N_max (N)
-{
-        // _arr.push_back(2);
-}
+{ }
 
 //      copy
 
@@ -38,7 +36,7 @@ Span &  Span::operator=(const Span &obj)
         return (*this);
 }
 
-int  Span::operator[](int i) const
+int  & Span::operator[](int i)
 {
     return (_arr.at(i));
 }
@@ -52,30 +50,56 @@ int  Span::operator[](int i) const
 
         /* Set atributs */
 
-void    Span::addNumber(int nb)
+void    Span::addNumber(const int & nb)
 {
-        if (_arr.size() == static_cast<unsigned int>(_N_max))
-                throw SpanException();
-        _arr.push_back(nb);
+    if (_arr.size() == static_cast<unsigned int>(_N_max))
+        throw SpanException();
+    _arr.push_back(nb);
+}
+
+void    Span::addNumber(const vect_iter & first, vect_iter last)
+{
+    if (_arr.size() == static_cast<unsigned int>(_N_max))
+        throw SpanException();
+    
+    int dist = std::distance(first, last);
+    int can_add = _N_max - _arr.size();
+
+    if (dist > can_add)
+        last += can_add;
+    _arr.insert(_arr.end(), first, last);
+    if (dist > can_add)
+        throw SpanException();
 }
 
         /* Get and show atributs */
 
         /* other methods */
 
-// int Span::shortestSpan()
-// {
-
-// }
+int Span::shortestSpan()
+{
+    if (_arr.size() < 2)
+        throw SpanException("    < Exception > : too few numbers.");
+    std::vector<int> copy_arr = _arr;
+    std::sort(copy_arr.begin(), copy_arr.end());
+    unsigned int min = _arr[1] - _arr[0];
+    for (unsigned int i_left = _arr.size(), i = 2, span; i < i_left; ++i)
+    {
+        span = _arr[i] - _arr[i - 1];
+        min = std::min(min, span);
+        if (!min)
+            return (0);
+    }
+    return (min);
+}
 
 int Span::longestSpan()
 {
     if (_arr.size() < 2)
         throw SpanException("    < Exception > : too few numbers.");
-    std::pair<vect_iter,vect_iter> minmax_pair;
-    minmax_pair = std::minmax_element(_arr.begin(), _arr.end());
-    int minmax = *(minmax_pair.first) - *(minmax_pair.second);
-    return (minmax < 0 ? -minmax : minmax);
+    vect_iter min = std::min_element(_arr.begin(), _arr.end());
+    vect_iter max = std::max_element(_arr.begin(), _arr.end());
+    return (*max - *min);
 }
 
 /******************************************************************************/
