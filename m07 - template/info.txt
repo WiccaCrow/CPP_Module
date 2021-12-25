@@ -23,3 +23,6 @@ http://cppstudio.com/post/5188/
 
 Реализация шаблонов отдельно от .hpp
 https://question-it.com/questions/348510/zachem-ispolzovat-fajl-tpp-pri-realizatsii-shablonnyh-funktsij-i-klassov-opredelennyh-v-zagolovke
+
+Супер ответ про реализацию шаблонов в отдельном файле и почему не .cpp
+https://isocpp.org/wiki/faq/templates#templates-defn-vs-decl
