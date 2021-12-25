@@ -5,7 +5,6 @@
 #include <iostream>
 #include <algorithm>
 
-
 class Span
 {
     private:

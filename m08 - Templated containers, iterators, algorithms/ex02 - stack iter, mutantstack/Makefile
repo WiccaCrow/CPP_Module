@@ -6,7 +6,7 @@ CPPF		=	c++ $(FLAGS)
 
 FLAGS		=	-Wall -Wextra -Werror -I./
 
-HDR			=   mutantstack.hpp
+HDR			=   mutantstack.hpp mutantstack.tpp
 
 SRCS		=	main.cpp mutantstack.cpp
 
